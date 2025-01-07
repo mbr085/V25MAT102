@@ -1,0 +1,50 @@
+Pedagogiske verktøy
+- Jeg kommer til å bruke litt forskjellige medier:
+- Jupyter notisbøker
+- Tavle
+- Studentaktiv undervisning med oppgaver og quizer.
+- Jeg foreleser ikke fra boken.
+- Det blir ikke lagt ut forelesningsnotater, men jupyter notisbøker blir delt.
+- Det blir ikke gort opptak.
+
+
+## Eksamen
+- Dere må bestå alle tre obligatoriske øvelser for å ta eksamen.
+- Eksamen blir skriftlig/digital/Inspera, fire timer.
+- Jeg bruker eksamener som "retter seg selv":
+- Det kommer til å bli utstrakt bruk av flervalgs-oppgaver, og andre oppgaver
+hvor svaret er "rett eller galt".
+- Mange oppgaver gjennom semesteret blir av denne typen. Også deler av de obligatoriske oppgavene.
+- Det er flott å jobbe sammen. Siden du er alene til eksamen er det en god ide å gjøre noen oppgaver alene gjennom semesteret.
+- Det gis altså ingen poeng for "tenkte riktig men kom likevel frem til galt svar".
+
+questions = \
+[
+{'question': "Hvordan er opplegget med eksamen i MAT102?",
+  'type': 'multiple_choice',
+  'answers': [
+   {'answer': 'Det er multlig eksamen i MAT102', 
+    'correct': False, 
+    'feedback': 'Nei, eksamen i MAT102 er skriftlig.'},
+   {'answer': 'Jeg skal vise alle mellomregninger for å kunne bestå eksamen', 
+    'correct': False, 
+    'feedback': 'Nei, mellomregninger blir ikke vurdert. Bare det endelige svaret blir vurdert.'},
+   {'answer': 'Eksamen består utelukkende av flervalgs-oppgaver', 
+    'correct': False, 
+    'feedback': 'Nei, det er en blanding av flervalgs-oppgaver og oppgaver der resultatet av en utregning må skrives inn.'},
+   {'answer': 'Eksamensbesvarelsen kan enten leveres på papir eller elektronisk', 
+    'correct': False, 
+    'feedback': 'Oppgavene kan kun leveres elektronisk gjennom inspera. Det er ikke mulig å legge til bilder av utregninger eller figurer.'},
+  ]},
+]
+
+
+Om tidsbruk
+- 10 studiepoeng (ECTS) er tilsvarende omtrent 250-300 timers arbeid.
+- [https://en.wikipedia.org/wiki/European_Credit_Transfer_and_Accumulation_ System](https://en.wikipedia.org/wiki/European_Credit_Transfer_and_Accumulation_ System)
+- Det er 18 uker igjen til eksamen, så for de av dere som har hatt ferie
+frem til nå, bør dere altså forvente å bruke omtrent 14-17 timer per
+uke på dette faget frem til eksamen.
+- MAT102 er ett av de letteste matematikkfagene på UiB. Likevel strøk
+omtrent 30% i fjor. Derfor: Studer jevnt gjennom semesteret, så
+slipper dere å se meg igjen her neste år
