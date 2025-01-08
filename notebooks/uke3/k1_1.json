@@ -5,7 +5,7 @@
         "answers": [
             {
               "type": "value",
-              "value": 0,
+              "value": 1,
               "correct": true,
               "feedback": "Riktig."
             },
@@ -21,7 +21,7 @@
         "answers": [
             {
               "type": "value",
-              "value": 0,
+              "value": 1,
               "correct": true,
               "feedback": "Riktig."
             },
