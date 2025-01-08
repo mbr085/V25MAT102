@@ -1,6 +1,6 @@
 [
     {
-        "question": "Hva er verdien til $x_1$?",
+        "question": "Hva er verdien til x_1?",
         "type": "numeric",
         "answers": [
             {
@@ -16,7 +16,7 @@
         ]
     },
     {
-        "question": "Hva er verdien til $x_2$?",
+        "question": "Hva er verdien til x_2?",
         "type": "numeric",
         "answers": [
             {
