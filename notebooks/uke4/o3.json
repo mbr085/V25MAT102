@@ -1,0 +1,50 @@
+[
+    {
+        "question": "Hva er arealet til en sirkelsektor med radius 2 og vinkel 60 grader? (Skriv svaret med 4 desimaler.)",
+        "type": "numeric",
+        "answers": [
+            {
+              "type": "range",
+              "range": [2.0943, 2.09431],
+              "correct": true,
+              "feedback": "Riktig."
+            },
+            {
+              "type": "default",
+              "feedback": "Feil."
+            }
+        ]
+    },
+    {
+        "question": "Hva er volum til en boks med lengdt 2, bredde 3 og høyde 4?",
+        "type": "numeric",
+        "answers": [
+            {
+              "type": "value",
+              "value": 24,
+              "correct": true,
+              "feedback": "Riktig."
+            },
+            {
+              "type": "default",
+              "feedback": "Feil."
+            }
+        ]
+    },
+    {
+        "question": "Hva er arealet til en trekant med grunnlinje e (Eulers tall) og høyde pi?",
+        "type": "numeric",
+        "answers": [
+            {
+              "type": "range",
+              "range": [4.2698, 4.26981],
+              "correct": true,
+              "feedback": "Riktig."
+            },
+            {
+              "type": "default",
+              "feedback": "Feil."
+            }
+        ]
+    }
+]
