@@ -5,7 +5,7 @@
         "answers": [
             {
               "type": "range",
-              "range": [2.0943, 2.09439],
+              "range": [2.0943, 2.0944],
               "correct": true,
               "feedback": "Riktig."
             },
