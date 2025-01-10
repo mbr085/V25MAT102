@@ -1,6 +1,6 @@
 [
     {
-        "question": "Hva er verdien til x_1? (Skriv svaret med 4 desimaler.)",
+        "question": "Hva er verdien til x_2? (Skriv svaret med 4 desimaler.)",
         "type": "numeric",
         "answers": [
             {
@@ -16,7 +16,7 @@
         ]
     },
     {
-        "question": "Hva er verdien til x_2? (Skriv svaret med 4 desimaler.)",
+        "question": "Hva er verdien til x_3? (Skriv svaret med 4 desimaler.)",
         "type": "numeric",
         "answers": [
             {
@@ -32,7 +32,7 @@
         ]
     },
     {
-        "question": "Hva er verdien til x_3? (Skriv svaret med 4 desimaler.)",
+        "question": "Hva er verdien til x_4? (Skriv svaret med 4 desimaler.)",
         "type": "numeric",
         "answers": [
             {
@@ -48,12 +48,12 @@
         ]
     },
     {
-        "question": "Hva er verdien til f(x_2)? (Skriv svaret med 4 desimaler.)",
+        "question": "Hva er verdien til f(x_3)? (Skriv svaret med 4 desimaler.)",
         "type": "numeric",
         "answers": [
             {
               "type": "range",
-              "range": [0.0006, 0.00061],
+              "range": [0.0485, 0.0487],
               "correct": true,
               "feedback": "Riktig."
             },
