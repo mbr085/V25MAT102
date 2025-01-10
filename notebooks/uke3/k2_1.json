@@ -53,7 +53,7 @@
         "answers": [
             {
               "type": "range",
-              "range": [0.04985, 0.04987],
+              "range": [0.0497, 0.0499],
               "correct": true,
               "feedback": "Riktig."
             },
