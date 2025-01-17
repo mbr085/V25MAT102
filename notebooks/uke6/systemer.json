@@ -1,0 +1,28 @@
+[
+  {
+        "question": "Velg funksjonen som løser differensialligningen over",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "f(x) = x² + C",
+                "correct": false,
+                "feedback": "Feil."
+            },
+            {
+                "answer": "f(x) = 2x² + 1",
+                "correct": false,
+                "feedback": "Feil."
+            },
+            {
+                "answer": "f(x) = 2eᵗ",
+                "correct": true,
+                "feedback": "Riktig."
+            },
+            {
+                "answer": "f(x) = eᵗ + 1",
+                "correct": false,
+                "feedback": "Feil."
+            }
+        ]
+    }
+]
