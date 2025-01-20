@@ -4,22 +4,22 @@
         "type": "multiple_choice",
         "answers": [
             {
-                "answer": "f(x) = x² + C",
+                "answer": "y(t) = t² + C",
                 "correct": false,
                 "feedback": "Feil."
             },
             {
-                "answer": "f(x) = 2x² + 1",
+                "answer": "y(t) = 2t² + 1",
                 "correct": false,
                 "feedback": "Feil."
             },
             {
-                "answer": "f(x) = 2eᵗ",
+                "answer": "y(t) = 2eᵗ",
                 "correct": true,
                 "feedback": "Riktig."
             },
             {
-                "answer": "f(x) = eᵗ + 1",
+                "answer": "y(t) = eᵗ + 1",
                 "correct": false,
                 "feedback": "Feil."
             }
