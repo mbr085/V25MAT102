@@ -1,3 +1,6 @@
+# Denne løsningen bygger på
+# https://math.libretexts.org/Courses/Cosumnes_River_College/Math_420%3A_Differential_Equations_(Breitenbach)/06%3A_Applications_of_Linear_Second_Order_Equations/6.02%3A_Spring-Mass_Problems_(With_Damping)
+
 import numpy as np
 
 def analytisk_svingning(M, alpha, k, t0, x0, y0):
