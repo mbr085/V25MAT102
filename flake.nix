@@ -137,6 +137,7 @@
             packages = [
               virtualenv
               pkgs.uv
+              pkgs.fish
             ];
             shellHook = ''
               # Undo dependency propagation by nixpkgs.
@@ -150,6 +151,8 @@
 
               # Get repository root using git. This is expanded at runtime by the editable `.pth` machinery.
               export REPO_ROOT=$(git rev-parse --show-toplevel)
+              export FISH_DEV_MODE=1
+              exec fish
             '';
           };
       };
