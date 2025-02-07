@@ -1,17 +1,21 @@
 [project]
-name = "v25mat102"
+name = "V25MAT102"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "google-generativeai>=0.8.3",
     "jupyter>=1.1.1",
-    "jupyterquiz>=2.8.1",
     "matplotlib>=3.10.0",
-    "meteostat>=1.6.8",
-    "numpy>=2.2.1",
-    "scikit-learn>=1.6.0",
-    "scipy>=1.15.0",
-    "sympy>=1.13.3",
+    "numpy>=2.2.2",
+    "scikit-learn>=1.6.1",
+    "scipy>=1.15.1",
 ]
+
+[dependency-groups]
+dev = [
+    "v25mat102",
+]
+
+[tool.uv.sources]
+v25mat102 = { workspace = true }
