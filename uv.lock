@@ -1263,6 +1263,15 @@ wheels = [
 ]
 
 [[package]]
+name = "python-linear-algebra"
+version = "0.1.0"
+source = { git = "https://github.com/mbr085/python_linear_algebra#2de16822684b3976d1032691da2a846eea2a69f9" }
+dependencies = [
+    { name = "numpy" },
+    { name = "sympy" },
+]
+
+[[package]]
 name = "pywin32"
 version = "308"
 source = { registry = "https://pypi.org/simple" }
@@ -1692,6 +1701,7 @@ dependencies = [
     { name = "jupyter" },
     { name = "matplotlib" },
     { name = "numpy" },
+    { name = "python-linear-algebra" },
     { name = "scikit-learn" },
     { name = "scipy" },
     { name = "sympy" },
@@ -1707,6 +1717,7 @@ requires-dist = [
     { name = "jupyter", specifier = ">=1.1.1" },
     { name = "matplotlib", specifier = ">=3.10.0" },
     { name = "numpy", specifier = ">=2.2.2" },
+    { name = "python-linear-algebra", git = "https://github.com/mbr085/python_linear_algebra" },
     { name = "scikit-learn", specifier = ">=1.6.1" },
     { name = "scipy", specifier = ">=1.15.1" },
     { name = "sympy", specifier = ">=1.13.3" },
