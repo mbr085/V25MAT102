@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage{amsmath}
+\begin{document}
+
+$$
+\vec v_1 =
+\begin{bmatrix}
+  x_1 \\
+  y_1
+\end{bmatrix}
+=
+\begin{bmatrix}
+  x_0 + \Delta t \cdot (px_0 + qy_0) \\
+  y_0 + \Delta t \cdot (rx_0 + sy_0)
+\end{bmatrix}
+=
+\begin{bmatrix}
+  (1 + \Delta t \cdot p)x_0 + \Delta t \cdot qy_0 \\
+  \Delta t \cdot rx_0 + (1 + \Delta t \cdot s)y_0
+\end{bmatrix}
+=
+\begin{bmatrix}
+  (1 + \Delta t \cdot p) & \Delta t \cdot q \\
+  \Delta t \cdot r & (1 + \Delta t \cdot s)
+\end{bmatrix}
+\begin{bmatrix}
+  x_0 \\
+  y_0
+\end{bmatrix}
+= 
+B \cdot \vec v_0
+$$
+
+$$
+A = 
+\begin{bmatrix}
+  -10^{-12} & 6 \cdot 10^7 \\
+  10^{-12} & -6 \cdot 10^7
+\end{bmatrix}
+$$
+
+$$\vec v(t) = 
+\begin{bmatrix}
+  N_1(t) \\
+  N_2(t)
+\end{bmatrix}
+$$
+
+$$
+\vec v_0 =
+\begin{bmatrix}
+  1000 \\
+  0
+\end{bmatrix}
+$$
+
+$$
+B = I + \Delta t \cdot A
+= \begin{bmatrix}
+  1 + \Delta t \cdot (-10^{-12}) & \Delta t \cdot 6 \cdot 10^7 \\
+  \Delta t \cdot 10^{-12} & 1 + \Delta t \cdot (-6 \cdot 10^7)
+\end{bmatrix}
+$$
+
+
+$$
+\vec v_n = B^n \cdot \vec v_0
+$$
+
+
+\end{document}
+
