@@ -1,72 +1,50 @@
 \documentclass{article}
 \usepackage{amsmath}
 \begin{document}
-
+Vi har sett på systemer av førsteordens differensialligninger på formen
 $$
-\vec v_1 =
-\begin{bmatrix}
-  x_1 \\
-  y_1
-\end{bmatrix}
-=
-\begin{bmatrix}
-  x_0 + \Delta t \cdot (px_0 + qy_0) \\
-  y_0 + \Delta t \cdot (rx_0 + sy_0)
-\end{bmatrix}
-=
-\begin{bmatrix}
-  (1 + \Delta t \cdot p)x_0 + \Delta t \cdot qy_0 \\
-  \Delta t \cdot rx_0 + (1 + \Delta t \cdot s)y_0
-\end{bmatrix}
-=
-\begin{bmatrix}
-  (1 + \Delta t \cdot p) & \Delta t \cdot q \\
-  \Delta t \cdot r & (1 + \Delta t \cdot s)
-\end{bmatrix}
-\begin{bmatrix}
-  x_0 \\
-  y_0
-\end{bmatrix}
-= 
-B \cdot \vec v_0
+\begin{align}
+  x'(t) &= f(t,x(t), y(t)), \newline
+  y'(t) &= g(t,x(t), y(t))
+\end{align}
+$$
+for funksjoner
+$$
+\begin{align}
+\mathbb{R}^3 &\xrightarrow f \mathbb{R}, \newline
+(t, x, y) &\mapsto f(t, x, y)
+\end{align}
+$$
+og
+$$
+\begin{align}
+\mathbb{R}^3 &\xrightarrow g \mathbb{R}, \newline
+(t, x) &\mapsto g(t, x, y).
+\end{align}
 $$
 
-$$
-A = 
-\begin{bmatrix}
-  -10^{-12} & 6 \cdot 10^7 \\
-  10^{-12} & -6 \cdot 10^7
-\end{bmatrix}
-$$
+Vi kan tenke på dette som en ligning mellom vektorer i $\mathbb{R}^2$. 
 
-$$\vec v(t) = 
-\begin{bmatrix}
-  N_1(t) \\
-  N_2(t)
-\end{bmatrix}
+Lar vi $\vec v(t) = (x(t), y(t))$ og $F(t, \vec v(t)) = (f(t, x(t), y(t)), g(t, x(t), y(t)))$, kan vi skrive systemet som
 $$
+\begin{align}
+  \vec v'(t) &= F(t, \vec v(t)).
+\end{align}
+$$
+Dette er en kompakt måte å skrive systemet på, og vi kan bruke vektorregning for å løse det.
 
-$$
-\vec v_0 =
-\begin{bmatrix}
-  1000 \\
-  0
-\end{bmatrix}
-$$
-
-$$
-B = I + \Delta t \cdot A
-= \begin{bmatrix}
-  1 + \Delta t \cdot (-10^{-12}) & \Delta t \cdot 6 \cdot 10^7 \\
-  \Delta t \cdot 10^{-12} & 1 + \Delta t \cdot (-6 \cdot 10^7)
-\end{bmatrix}
-$$
-
-
-$$
-\vec v_n = B^n \cdot \vec v_0
-$$
-
+Hvis vi lar 
+$A = \begin{bmatrix}p&q\\r&s\end{bmatrix}$ så kan dette skrives 
+$$\vec v'(t) = 
+\begin{bmatrix}x'(t)\\y'(t)\end{bmatrix}
+= \begin{bmatrix}p&q\\r&s\end{bmatrix} \cdot \begin{bmatrix}x(t)\\y(t)\end{bmatrix}
+= A \cdot \begin{bmatrix}x(t)\\y(t)\end{bmatrix}
+= A \cdot \vec v(t) = F(t, \vec v(t))$$
+Skriver vi 
+$\vec v(t) = \begin{bmatrix}x(t)\\y(t)\end{bmatrix}$
+er den koordinatvis deriverte til $\vec v(t)$ gitt ved formelen
+$\vec v'(t) = \begin{bmatrix}x'(t)\\y'(t)\end{bmatrix}$, og systemet av differensialligninger kan skrives
+$$\vec v'(t) = A \cdot \vec v(t).$$
 
 \end{document}
 
