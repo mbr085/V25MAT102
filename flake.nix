@@ -3,14 +3,12 @@
 
 inputs = {
   nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-  nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";  # Both the same unstable channel
 };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, ... }:
+  outputs = { self, nixpkgs,  ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-      unstable = import nixpkgs-unstable { inherit system; };
       python = pkgs.python312;
       pythonPackages = pkgs.python312Packages;
     in
@@ -18,7 +16,7 @@ inputs = {
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = [
           python
-          unstable.uv
+          pkgs.uv
           pkgs.gcc
           pkgs.stdenv
           pkgs.ghostscript
