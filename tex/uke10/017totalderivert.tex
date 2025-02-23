@@ -1,0 +1,75 @@
+\section{Derivasjon}
+\subsection{Vektorer og totalderiverte}
+\newcommand{\V}[1]{\mathbf{#1}}
+En {\em vektorfunksjon} er en funksjon som tar en verdi i $\R^n$ og gir en
+vektor i $\R^m$. En vektorfunksjon kan skrives som en funksjon
+$\V{F}:\R^n\to\R^m$ som tar en vektor $\V{x}\in\R^n$ og gir en vektor
+$\V{F}(\V{x})\in\R^m$. En vektorfunksjon kan også skrives som en liste av
+funksjoner, for eksempel
+$$\V{F}(\V{x}) = \begin{bmatrix} f_1(\V{x}) \\ f_2(\V{x}) \\ \vdots \\ f_m(\V{x}) \end{bmatrix}.$$
+
+\begin{definisjon}
+Funksjonen $\V{F}$ er (total)deriverbar i punktet $\V{x}_0$ hvis det finnes en $m \times n$-matrise $\V{F}'(\V{x}_0)$ slik at
+$$\lim_{\V{h}\to 0} \frac{\|\V{F}(\V{x}_0+\V{h}) - \V{F}(\V{x}_0) -
+\V{F}'(\V{x}_0) \cdot \V{h}\|}{\|\V{h}\|} = 0.$$
+\end{definisjon}
+
+
+Vi går ikke inn på detalj om grenseverdier i flere variabler. Alt vi trenger å
+vite er at de har samme regneregler som
+grenerverdier i en variabel.
+Dette medfører at de generelle derivasjonsreglene for funksjoner av en variabel også gjelder for vektorfunksjoner.
+
+\begin{definisjon}
+  {\em Lineærtilnærmingen} til en vektorfunksjon $\V{F}$ som er deriverbar i punktet $\V{x}_0$ er
+  gitt ved
+  $$L(\V{x}) = \V{F}(\V{x}_0) + \V{F}'(\V{x}_0) \cdot (\V{x} - \V{x}_0).$$
+\end{definisjon}
+
+\begin{eksempel}
+  La $f \colon \R \to \R$ være en vanlig funksjon av en variabel. Betingelsen over kan skrives:
+  $$\lim_{h\to 0} \frac{f(x_0+h) - f(x_0) - f'(x_0) \cdot h}{h} =
+  \lim_{h\to 0} \frac{f(x_0+h) - f(x_0)}{h} - f'(x_0) = 0.$$
+  Her står altså 
+  $$f'(x_0) = \lim_{h\to 0} \frac{f(x_0+h) - f(x_0)}{h}.$$
+  Dette er den vanlige definisjonen av den deriverte av en funksjon av en variabel.
+
+  Lineærtilnærmingen til $f$ i punktet $x_0$ er gitt ved
+  $$L(x) = f(x_0) + f'(x_0) \cdot (x - x_0).$$
+  Grafen til $L(x)$ tangenten til grafen til $f$ i punktet $x_0$.
+\end{eksempel}
+[illustrasjon av tangent til en funksjon av en variabel]
+
+\begin{eksempel}
+  La $\V{y} \colon \R \to \R^2$ være en kurve i planet. Betingelsen over kan igjen skrives:
+  $$\lim_{h\to 0} \frac{\V{y}(x_0+h) - \V{y}(x_0) - \V{y}'(x_0) \cdot h}{h} =
+  \lim_{h\to 0} \frac{\V{y}(x_0+h) - \V{y}(x_0)}{h} - \V{y}'(x_0) = 0.$$
+  Her står altså 
+  $$\V{y}'(x_0) = \lim_{h\to 0} \frac{\V{y}(x_0+h) - \V{y}(x_0)}{h}.$$
+  Denne grensen kan beregens komponentvis slik at hvis $\V{y}(t) =
+  \begin{bmatrix} y_1(t) \\ y_2(t) \end{bmatrix}$, så er $\V{y}'(t) =
+  \begin{bmatrix} y_1'(t) \\ y_2'(t) \end{bmatrix}$.
+  Lineærtilnærmingen til $\V{y}$ i punktet $t_0$ er gitt ved
+  $$L(t) = \V{y}(t_0) + \V{y}'(t_0) \cdot (t - t_0).$$
+  Dette er en parametrisering av tangenten til kurven i punktet $\V{y}(t_0)$.
+\end{eksempel}
+[Illustrasjon av tangent til en kurve i planet]
+\subsection{Gradienten og retningsderiverte}
+\begin{definisjon}
+  {\em Den retningsderiverte} av en flervariabel funksjon $\V{F} \colon \R^n \to
+  \R$ i punktet $\V{x}_0$ i retning $\vektor v$ er gitt ved
+  $$D_{\vektor v} \V{F}(\V{x}_0) = \lim_{t\to 0} \frac{\V{F}(\V{x}_0 + t\vektor v) - \V{F}(\V{x}_0)}{t}.$$
+\end{definisjon}
+Gitt $\V{x_0} \in \R^n$ og en vektor $\vektor v \in \R^n$, er funksjonen 
+$$g(t) = \V{x_0} + t\vektor v$$
+en parametrisering av den rette linjen gjennom $\punkt{x_0}$ i retning $\vektor v$.
+Funksjonen $\V{F} \circ g$ er en funksjon av en variabel, gitt ved $(\V{F} \circ g)(t) = \V{F}(g(t))$.
+Den deriverte av denne komositten
+i punktet $t=0$ er retningsderiverte av $\V{F}$ i punktet $\V{x_0}$ i retning
+$\vektor v$. Det vil si at
+$D_{\vektor v} \V{F}(\V{x_0}) = (\V{F} \circ g)'(0)$.
+
+Hvis $D_{\vektor v} \V{F}(\V{x_0}) > 0$ da vokser funksjonen $\V{F}$ når vi beveger oss
+vekk fra punketet $\V{x}_0$ i retning $\vektor v$. Hvis $D_{\vektor v} \V{F}(\V{x_0}) < 0$ da
+avtar funksjonen $\V{F}$ når vi beveger oss vekk fra punktet $\V{x}_0$ i retning $\vektor v$.
+[Illustrasjon]

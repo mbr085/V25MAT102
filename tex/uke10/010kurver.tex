@@ -1,0 +1,61 @@
+\section{Kurver}
+
+I dette avsnittet jobber vi med $\mathbb{R}^n$ der $n$ er et positivt heltall. Nesten
+alle eksemplene er i $\mathbb{R}^2$ eller $\mathbb{R}^3$.
+
+At $\punkt{y} \in \mathbb{R}^n$ betyr at $\punkt{y}$ er en (kolonne) vektor i $\mathbb{R}^n$.
+Det vil si at $\punkt{y}$ er en liste med $n$ reelle tall på formen
+$$\punkt{y} = \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix}.$$
+Vi kaller $y_i$ for {\em komponentene} til $\punkt{y}$.
+Hvis vi vil tenke på $\punkt y$ som en retning skriver vi $\vektor y$ i stedet for $\punkt y$.
+
+\begin{definisjon}
+  En {\em parametrisert kurve} i $\mathbb{R}^n$ er en funksjon $\punkt y: I \to
+  \mathbb{R}^n$ hvor $I$ er et intervall i $\mathbb{R}$.
+\end{definisjon}
+
+At $\punkt y$ er en parametrisert kurve betyr at for hver $t \in I$ har vi en punkt $\punkt y(t) \in \mathbb{R}^n$
+som vi kan skrive på formen
+$$\punkt y(t) = \begin{bmatrix} y_1(t) \\ y_2(t) \\ \vdots \\ y_n(t) \end{bmatrix}.$$
+
+\begin{eksempel}
+  Løsningene vi fant til systemer av differensialligninger er eksempler på parametriserte kurver.
+\end{eksempel}
+
+\begin{definisjon}
+  En parametrisert kurve $\punkt y: I \to \mathbb   {R}^n $ er {\em deriverbar}
+  dersom alle komponentene $y_i(t)$ er deriverbare funksjoner av $t$.
+  Den deriverte av $\punkt y$ er den parametriserte kurven
+  $$\frac{d \punkt y}{dt}(t) = \begin{bmatrix} y_1'(t) \\ y_2'(t) \\ \vdots \\ y_n'(t) \end{bmatrix}.$$
+  Vi kaller $\frac{d \punkt y}{dt}(t)$ for {\em hastighetsvektoren} til kurven $\punkt y$ ved tid $t$.
+\end{definisjon}
+
+
+\begin{eksempel}
+  La $\punkt y: [0, 2\pi] \to \mathbb{R}^2$ være gitt ved
+  $$\punkt y(t) = \begin{bmatrix} \cos t \\ \sin t \end{bmatrix}.$$
+  Dette er en deriverbar parametrisert kurve i $\mathbb{R}^2$ som beskriver en sirkel.
+  Den deriverte kurven til $\punkt y$ er
+  $$\frac{d \punkt y}{dt} = \begin{bmatrix} -\sin t \\ \cos t \end{bmatrix}.$$
+  Bemerk at også $\frac{d \punkt y}{dt}$ er en deriverbar parametrisert kurve som beskriver en sirkel.
+\end{eksempel}
+[Illustrasjoner]
+
+\begin{eksempel}
+  La $\punkt y: [0, 1] \to \mathbb{R}^3$ være gitt ved
+  $$\punkt y(t) = \begin{bmatrix} \cos t \\ \sin t \\ t \end{bmatrix}.$$
+  Dette er en parametrisert kurve i $\mathbb{R}^3$ som beskriver en spiral.
+\end{eksempel}
+[Illustrasjoner]
+
+\begin{eksempel}
+  La $\punkt p$ være et punkt i $\mathbb{R}^n$ og la $\vektor v$ være en vektor i $\mathbb{R}^n$.
+  Da er $\punkt y: \mathbb{R} \to \mathbb{R}^n$ gitt ved
+  $$\punkt y(t) = \punkt p + t \vektor v$$
+  en parametrisert kurve i $\mathbb{R}^n$.
+  Denne kurven beskriver en rett linje gjennom punktet $\punkt p$ med retningsvektor $\vektor v$.
+\end{eksempel}
+[Illustrasjon $n=2$]
+
+
+

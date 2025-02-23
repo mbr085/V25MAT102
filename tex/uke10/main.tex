@@ -1,0 +1,35 @@
+\documentclass{amsart}
+\usepackage{amsmath, amsthm, amscd, amsfonts, amssymb, graphicx, color}
+\usepackage{tikz-cd}
+% \usepackage{amsmath}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{references.bib}
+
+\newtheorem{teorem}{Teorem}%[section]
+\newtheorem{lemma}[teorem]{Lemma}
+\theoremstyle{definition}
+
+\newtheorem{definisjon}[teorem]{Definisjon}
+\newtheorem{eksempel}[teorem]{Eksempel}
+\theoremstyle{remark}
+\newtheorem{bemerkning}[teorem]{Bemerkning}
+\numberwithin{equation}{section}
+
+\newcommand{\punkt}[1]{\mathbf{#1}}
+\newcommand{\vektor}[1]{\vec{\mathbf{#1}}}
+\newcommand{\R}{\mathbb{R}}
+% \newcommand{matrise}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\begin{document}
+
+
+\title{Funksjoner av flere variable}
+\author{Morten}
+\date{\today}
+\maketitle
+
+% \input{010kurver.tex}
+% \input{011funksjoneravnvariable.tex}
+\input{017totalderivert.tex}
+% \printbibliography
+
+\end{document}

@@ -1,0 +1,59 @@
+\section{Funksjoner av flere variable}
+
+En funksjon $f: \mathbb{R}^n \to \mathbb{R}$ tar et punkt $\punkt x \in \mathbb{R}^n$
+til et reelt tall $f(\punkt x) \in \mathbb{R}$. 
+
+\subsection{Grafen til en funksjon av to variable}
+Funksjoner av to variable er funksjoner på formen $f \colon \R^2 \to \R$. Slike
+funksjoner kan illustreres ved å tegne den tilhørende graf.
+
+\begin{eksempel}
+  La $f: \mathbb{R}^2 \to \mathbb{R}$ være gitt ved
+  $$f(\begin{bmatrix} x_1 \\ x_2 \end{bmatrix}) = x_1^2 + x_2^2.$$
+  Dette er en funksjon som tar et punkt $\begin{bmatrix} x_1 \\ x_2
+  \end{bmatrix} \in \mathbb{R}^2$ til et reelt tall
+  $f(\begin{bmatrix} x_1 \\ x_2 \end{bmatrix}) = x_1^2 + x_2^2.$
+\end{eksempel}
+
+\begin{eksempel}
+  La $A = [a_1, a_2, \dots, a_n]$ være en rad vektor. 
+  Gitt et punkt $\punkt x \in \R^n$ kan vi
+  tenke på det som en vektor $\vektor x \in \R^n$, og la $f: \mathbb{R}^n \to \mathbb{R}$ være gitt ved
+  $$f(\punkt x) = A\cdot \vektor x.$$
+  Dette er en funksjon som tar et punkt $\punkt x \in \mathbb{R}^n$ til tallet
+  $f(\punkt x) = A\cdot \vektor x \in \mathbb{R}$.
+  (Egentlig er et punkt og en vektor det samme!)
+
+  For $n = 2$ er dette en funksjon $f \colon \R^2 \to \R$, så vi kan tegne grafen til $f$.
+  Vi illustrer dette for $A = [1, 2]$.
+\end{eksempel}
+
+\begin{eksempel}
+  La $f$ være gitt ved
+  $$f(\begin{bmatrix} x_1 \\ x_2 \end{bmatrix}) = \sqrt{1 - x_1^2 + x_2^2}.$$
+  Denne funksjonen er ikke definert for alle punktene i $\R^2$. Hvis vi skriver 
+  $D$ for mengden av punkter $\begin{bmatrix}x_1\\x_2\end{bmatrix}$ i $\R^2$
+  med $x_1^2 + x_2^2 \le 0$, da kan vi skrive at $f$ er en funksjon $f \colon D \to \R$.
+\end{eksempel}
+
+\begin{eksempel}
+  La $f \colon \R^2 \to \R$ være gitt ved
+  $$f(\begin{bmatrix} x_1 \\ x_2 \end{bmatrix}) =
+  2e^{-((x_1 + 1)^2 + x_2^2)}
+  +
+  e^{-((x_1 - 2)^2 + x_2^2)}
+  .$$
+  Vi plotter denne funksjonen over rektanglet $[-2,4] \times [-1.5, 1.5]$
+  der $-2 \le x_1 \le 4$ og $-1.5 \le x_2 \le 1.5$.
+\end{eksempel}
+
+\subsection{Nivåkurver}
+Funksjoner kan også illusteres ved å tegne nivåkurver. En nivåkurve for en
+funksjon $f \colon \R^2 \to \R$ er en kurve i planet som består av punkter
+der funksjonen $f$ har samme verdi. Slike nivåkurver kan illustreres på grafen til 
+funksjonen eller de kan tegnes i planet.
+Vi illustrerer dette ved å tegne nivåkurver for funksjonene i eksemplene over.
+
+
+
+  

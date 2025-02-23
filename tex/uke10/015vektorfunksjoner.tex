@@ -1,0 +1,21 @@
+
+\begin{eksempel}
+  La $A$ være en $m \times n$ matrise. Gitt et punkt $\punkt x \in \R^n$ kan vi
+  tenke på det som en vektor $\vektor x \in \R^n$, og la $f: \mathbb{R}^n \to \mathbb{R}^m$ være gitt ved
+  $$f(\punkt x) = A\cdot \vektor x.$$
+  Dette er en funksjon som tar et punkt $\punkt x \in \mathbb{R}^n$ til punktet
+  $f(\punkt x)$ gitt ved vektoren $A\cdot \vektor x \in \mathbb{R}^m$.
+  (Egentlig er et punkt og en vektor det samme!)
+\end{eksempel}
+
+\begin{eksempel}
+  La $k_1$, $k_2$ og $k_3$ være tall mellom $0$ og $1$, la $A$ være et fast tall  og la 
+  $f \colon \R^2 \to \R^2$ være gitt ved
+  $$f(\begin{bmatrix} x_1 \\ x_2 \end{bmatrix}) = \begin{bmatrix} k_1 A x_1 - k_2 x_1 x_2 \\
+  k_2 x_1 x_2 - k_3 x_2 \end{bmatrix}.$$
+  Lotka Voltera modellen er et eksempel på en slik funksjon, der vi for en kurve $\punkt x \colon I \to \R^2$
+  krever at $\punkt x'(t) = f(\punkt x(t))$. Vi har sett at hvis en
+  startbetingelse $\punkt x(t_0) = \punkt x_0$ er gitt, så finnes det en unik
+  løsning $\punkt x(t)$ for $t \geq t_0$.
+\end{eksempel}
+
