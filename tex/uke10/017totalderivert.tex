@@ -5,19 +5,29 @@ vektor i $\R^m$. En vektorfunksjon kan skrives som en funksjon
 $\punkt{F}:\R^n\to\R^m$ som tar en vektor $\punkt{x}\in\R^n$ og gir en vektor
 $\punkt{F}(\punkt{x})\in\R^m$. En vektorfunksjon kan også skrives som en liste av
 funksjoner, for eksempel
-$$\punkt{F}(\punkt{x}) = \begin{bmatrix} f_1(\punkt{x}) \\ f_2(\punkt{x}) \\ \vdots \\ f_m(\punkt{x}) \end{bmatrix}.$$
+$$\punkt{F}(\punkt{x}) = \begin{bmatrix} \F_1(\punkt{x}) \\ \F_2(\punkt{x}) \\ \vdots \\ \F_m(\punkt{x}) \end{bmatrix}.$$
 
 \begin{definisjon}
-Funksjonen $\punkt{F}$ er (total)deriverbar i punktet $\punkt{x}_0$ hvis det finnes en $m \times n$-matrise $\punkt{F}'(\punkt{x}_0)$ slik at
+Funksjonen $\punkt{F}$ er deriverbar i punktet $\punkt{x}_0$ hvis det finnes en $m \times n$-matrise $\punkt{F}'(\punkt{x}_0)$ slik at
 $$\lim_{\punkt{h}\to 0} \frac{\punkt{F}(\punkt{x}_0+\punkt{h}) - \punkt{F}(\punkt{x}_0) -
-\punkt{F}'(\punkt{x}_0) \cdot \punkt{h}}{\|\punkt{h}\|} = 0.$$
+\punkt{F}'(\punkt{x}_0) \cdot \punkt{h}}{|\punkt{h}|} = 0.$$
+Her tas grensen over $\punkt h \in \R^n$ og $| \punkt h|$ er lengden til vektoren $\punkt{h}$.
+
+Matrisen $\F(\x_0)'$ kalles den deriverte av $\F$ i punktet $\x_0$. Et annet
+navn for denne matrisen er {\em Jacobimatrisen} til $\F$ i punktet $\x_0$.
 \end{definisjon}
 
 
 Vi går ikke inn på detalj om grenseverdier i flere variabler. Alt vi trenger å
 vite er at de har samme regneregler som
-grenerverdier i en variabel.
+grenseverdier i en variabel og at grenseverdier kan beregnes komponentvis.
 Dette medfører at de generelle derivasjonsreglene for funksjoner av en variabel også gjelder for vektorfunksjoner.
+En annen konsekvens er at 
+$$\punkt{F}'(\punkt{x}) = \begin{bmatrix} \F'_1(\punkt{x}) \\ \F'_2(\punkt{x})
+\\ \vdots \\ \F'_m(\punkt{x}) \end{bmatrix},$$
+hvor matrisen på høyre side er en $m \times n$-matrise fremkommet ved å stable
+$m$ matriser av formen $(1 \times n)$ på hverandre.
+Det vil si $m$ radvektorer, hvor hver radvektor er den deriverte av en funksjon $\F_i$.
 
 \begin{definisjon}
   {\em Lineærtilnærmingen} til en vektorfunksjon $\punkt{F}$ som er deriverbar i punktet $\punkt{x}_0$ er
@@ -57,90 +67,111 @@ Dette medfører at de generelle derivasjonsreglene for funksjoner av en variabel
 [Illustrasjon av tangent til en kurve i planet]
 \subsection{Gradienten og retningsderiverte}
 \begin{definisjon}
-  {\em Den retningsderiverte} av en flervariabel funksjon $\punkt{F} \colon \R^n \to
+  {\em Den retningsderiverte} av en flervariabel funksjon $f \colon \R^n \to
   \R$ i punktet $\punkt{x}_0$ i en retning $\vektor v \in \R^n$ er gitt ved
-  $$D_{\vektor v} \punkt{F}(\punkt{x}_0) = \lim_{t\to 0} \frac{\punkt{F}(\punkt{x}_0 + t\vektor v) - \punkt{F}(\punkt{x}_0)}{t}.$$
+  $$D_{\vektor v} f(\punkt{x}_0) = \lim_{t\to 0} \frac{f(\punkt{x}_0 + t\vektor v) - f(\punkt{x}_0)}{t}.$$
 \end{definisjon}
 Gitt $\punkt{x_0} \in \R^n$ og en vektor $\vektor v \in \R^n$, er funksjonen 
 $$g(t) = \punkt{x_0} + t\vektor v$$
 en parametrisering av den rette linjen gjennom $\punkt{x_0}$ i retning $\vektor v$.
-Funksjonen $\punkt{F} \circ g$ er en funksjon av en variabel, gitt ved $(\punkt{F} \circ g)(t) = \punkt{F}(g(t))$.
+Funksjonen $f \circ g$ er en funksjon av en variabel, gitt ved $(f \circ g)(t) = f(g(t))$.
 Den deriverte av denne kompositten
-i punktet $t=0$ er retningsderiverte av $\punkt{F}$ i punktet $\punkt{x_0}$ i retning
+i punktet $t=0$ er retningsderiverte av $f$ i punktet $\punkt{x_0}$ i retning
 $\vektor v$. Det vil si at
-$D_{\vektor v} \punkt{F}(\punkt{x_0}) = (\punkt{F} \circ g)'(0)$.
+$D_{\vektor v} f(\punkt{x_0}) = (f \circ g)'(0)$.
 
-Hvis $D_{\vektor v} \punkt{F}(\punkt{x_0}) > 0$ da vokser funksjonen $\punkt{F}$ når vi beveger oss
-vekk fra punketet $\punkt{x}_0$ i retning $\vektor v$. Hvis $D_{\vektor v} \punkt{F}(\punkt{x_0}) < 0$ da
-avtar funksjonen $\punkt{F}$ når vi beveger oss vekk fra punktet $\punkt{x}_0$ i retning $\vektor v$.
+Hvis $D_{\vektor v} f(\punkt{x_0}) > 0$ da vokser funksjonen $f$ når vi beveger oss
+vekk fra punketet $\punkt{x}_0$ i retning $\vektor v$. Hvis $D_{\vektor v} f(\punkt{x_0}) < 0$ da
+avtar funksjonen $f$ når vi beveger oss vekk fra punktet $\punkt{x}_0$ i retning $\vektor v$.
 
 [Illustrasjon]
 
 \begin{oppgave}\label{retningsderivertderivert}
-  Forklar hvorfor $D_{\vektor v} \F(\x_0) = \F'(\x_0)\cdot \vektor{v}$.
+  Forklar hvorfor $D_{\vektor v} f(\x_0) = f'(\x_0)\cdot \vektor{v}$.
 \end{oppgave}
 % Hint: Bruk at 
-% $$\lim_{t \to 0} \frac{\F(\x_0 + t \vv) - \F(\x_0) - \F'(\x_0)}{t} = 0$$
+% $$\lim_{t \to 0} \frac{f(\x_0 + t \vv) - f(\x_0) - f'(\x_0)}{t} = 0$$
   Husk at enhetsvektoren $\vektor e_i$ er en vektor med lengde 1 i retning $i$-aksen. Det vil
   si at $\vektor e_i = \begin{bmatrix} 0 \\ \vdots \\ 1 \\ \vdots \\ 0 \end{bmatrix}$, der 1
   står på $i$-te plass.
 \begin{definisjon}
-  Den retningsderiverte av $\punkt{F}$ i punktet $\punkt{x}_0$ i retning $\vektor e_i$
-  kalles den $i$-te partiellderiverte av $\punkt{F}$ i punktet $\punkt{x}_0$ og skrives
-  $$\frac{\partial \punkt{F}}{\partial x_i}(\punkt{x}_0) = D_{\vektor e_i} \punkt{F}(\punkt{x}_0).$$
+  Den retningsderiverte av $f$ i punktet $\punkt{x}_0$ i retning $\vektor e_i$
+  kalles den $i$-te partiellderiverte av $f$ i punktet $\punkt{x}_0$ og skrives
+  $$\frac{\partial f}{\partial x_i}(\punkt{x}_0) = D_{\vektor e_i} f(\punkt{x}_0).$$
 \end{definisjon}
 Fra oppgave \ref{retningsderivertderivert} har vi at
-$$\frac{\partial \F}{\partial x_i}(\x_0) = \F'(\x_0)\cdot \vektor{e}_i.$$
+$$\frac{\partial f}{\partial x_i}(\x_0) = f'(\x_0)\cdot \vektor{e}_i.$$
+Av dette kan vi lese av at
+$$f'(\x_0) = \begin{bmatrix} \frac{\partial f}{\partial x_1}(\x_0) & \dots & \frac{\partial f}{\partial x_n}(\x_0) \end{bmatrix}.$$
+
+For en vektorfunksjon $\F \colon \R^n \to \R^m$ på formen
+$$\F(\x) = \begin{bmatrix} \F_1(\x) \\ \F_2(\x) \\ \vdots \\ \F_m(\x) \end{bmatrix},$$
+kan vi sette inn observasjonene over og se at 
+$$\F'(\x_0) = \begin{bmatrix} \F'_1(\x_0) \\ \F'_2(\x_0) \\ \vdots \\ \F'_m(\x_0) \end{bmatrix}
+= 
+\begin{bmatrix}
+  \frac{\partial F_1}{\partial x_1}
+  & \dots &
+  \frac{\partial F_1}{\partial x_n}
+  \\
+  \frac{\partial F_2}{\partial x_1}
+  & \dots &
+  \frac{\partial F_2}{\partial x_n}
+  \\
+  \vdots &&  \vdots \\
+  \frac{\partial F_m}{\partial x_1}
+         & \dots&
+  \frac{\partial F_m}{\partial x_n}
+  \end{bmatrix}.$$
 \begin{oppgave}
   Per definisjon er den retningsderiverte av en vektorfunksjon den deriverte til en funksjon av en variabel. 
-  Beskriv en funksjon $h \colon \R \to \R$ slik at $\frac{\partial \punkt{F}}{\partial x_i}(\punkt{x}_0) = h'(0)$.
+  Beskriv en funksjon $h \colon \R \to \R$ slik at $\frac{\partial f}{\partial x_i}(\punkt{x}_0) = h'(0)$.
 \end{oppgave}
 % \begin{oppgave}
 %   La $A$ og $B$ være to $n \times n$ matriser med $A \cdot \vektor{e}_i = B \cdot \vektor{e}_i$ for $i = 1, \dots, n$. Forklar 
 %   hvorfor vi vet at $A = B$.
 % \end{oppgave}
 % Hint: Bruk at 
-% $$\lim_{t \to 0} \frac{\F(\x_0 + t \vv) - \F(\x_0) - \F'(\x_0)}{t} = 0$$
+% $$\lim_{t \to 0} \frac{f(\x_0 + t \vv) - f(\x_0) - f'(\x_0)}{t} = 0$$
 \begin{definisjon}
   {\em Gradienten} til en vektorfunksjon $F \colon \R^n \to \R$ i et punkt $\x_0 \in \R^n$ er vektoren
-  $$\nabla \F(\x_0) = \begin{bmatrix}\frac{\partial \F}{\partial x_1}(\x_0) \\ \vdots \\ \frac{\partial \F}{\partial x_n}(\x_0)\end{bmatrix} $$
+  $$\nabla f(\x_0) = \begin{bmatrix}\frac{\partial f}{\partial x_1}(\x_0) \\ \vdots \\ \frac{\partial f}{\partial x_n}(\x_0)\end{bmatrix} $$
 \end{definisjon}
 \begin{bemerkning}
-  Gradienten $\nabla \F(\x_0)$ er en kolonnevektor, og $\F'(\x_0)$ er
+  Gradienten $\nabla f(\x_0)$ er en kolonnevektor, og $f'(\x_0)$ er
   radvektoren som fås ved å legge denne kolonnevktoren ned som vi gjorde da vi
   deinerte matrisemultiplikasjon.
 \end{bemerkning}
 \begin{teorem}
-  Hvis $\F\colon \R^n \to \R$ er en skalarfunksjon og $\x_0$ er et punkt slik
-  at $\F'(\x_0)$ er definert, så er
-  $$D_{\vektor v} \F(\x_0) = \F'(\x_0) \cdot \vv = \nabla \F(\x_0) \cdot
-  \vektor v = |\nabla \F(\x_0)| \cos \theta,$$
-  for alle vektorer $\vv$ med lengde $1$, der $\theta$ er vinkelen mellom $\vv$ og $\nabla \F(\x_0)$.
-  Derfor er $\nabla \F(\x_0)$ retningen der $\F$ vokser raskest i punktet $\x_0$.
+  Hvis $f\colon \R^n \to \R$ er en skalarfunksjon og $\x_0$ er et punkt slik
+  at $f'(\x_0)$ er definert, så er
+  $$D_{\vektor v} f(\x_0) = f'(\x_0) \cdot \vv = \nabla f(\x_0) \cdot
+  \vektor v = |\nabla f(\x_0)| \cos \theta,$$
+  for alle vektorer $\vv$ med lengde $1$, der $\theta$ er vinkelen mellom $\vv$ og $\nabla f(\x_0)$.
+  Derfor er $\nabla f(\x_0)$ retningen der $f$ vokser raskest i punktet $\x_0$.
 \end{teorem}
 [[eksempel]]
 
 \subsection{Gradienter og nivåmengder}
 
 \begin{definisjon}
-  En {\em nivåkurve} til en funksjon $\F \colon \R^n \to \R$ er en kurve
+  En {\em nivåkurve} til en funksjon $f \colon \R^n \to \R$ er en kurve
   $\punkt{r} \colon \R \to \R^n$
-  slik at $\F(\punkt{r}(t)) = c$ for en konstant $c$.
+  slik at $f(\punkt{r}(t)) = c$ for en konstant $c$.
 \end{definisjon}
 \begin{teorem}
-  Gitt $\F \colon \R^n \to \R$ og en nivåkurve $\punkt{r} \colon \R \to \R^n$
-  til $\F$ og et tall $t$ slik at de deriverte  $\punkt{r}'(t)$ og $\F'(\punkt{r}(t))$
+  Gitt $f \colon \R^n \to \R$ og en nivåkurve $\punkt{r} \colon \R \to \R^n$
+  til $f$ og et tall $t$ slik at de deriverte  $\punkt{r}'(t)$ og $f'(\punkt{r}(t))$
   begge er definert. Da er 
-  $$\nabla \F(\punkt{r}(t)) \cdot \punkt{r}'(t) = 0.$$
+  $$\nabla f(\punkt{r}(t)) \cdot \punkt{r}'(t) = 0.$$
 \end{teorem}
 Dette er en direkte konsekvens av kjerneregelen:
 \begin{displaymath}
-  0 = (\F \circ \punkt{r})'(t) =
-  \F'(\punkt{r}(t)) \cdot \punkt{r}'(t) =
-  \nabla F(\punkt{r}(t)) \cdot \punkt{r}'(t).
+  0 = (f \circ \punkt{r})'(t) =
+  f'(\punkt{r}(t)) \cdot \punkt{r}'(t) =
+  \nabla f(\punkt{r}(t)) \cdot \punkt{r}'(t).
 \end{displaymath}
 
 [[eksempler eg fra boken]
-\subsection{Jacobimatrisen}
 
 
