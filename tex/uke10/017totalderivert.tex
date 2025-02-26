@@ -5,13 +5,35 @@ vektor i $\R^m$. En vektorfunksjon kan skrives som en funksjon
 $\punkt{F}:\R^n\to\R^m$ som tar en vektor $\punkt{x}\in\R^n$ og gir en vektor
 $\punkt{F}(\punkt{x})\in\R^m$. En vektorfunksjon kan også skrives som en liste av
 funksjoner, for eksempel
-$$\punkt{F}(\punkt{x}) = \begin{bmatrix} \F_1(\punkt{x}) \\ \F_2(\punkt{x}) \\ \vdots \\ \F_m(\punkt{x}) \end{bmatrix}.$$
+$$\punkt{F}(\punkt{x}) = \begin{bmatrix} F_1(\punkt{x}) \\ F_2(\punkt{x}) \\ \vdots \\ F_m(\punkt{x}) \end{bmatrix}.$$
 
+\begin{eksempel}
+  La $A$ være $2 \times 2$-matrisen
+  $$A = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}.$$
+  Da er funksjonen $\F \colon \R^2 \to \R^2$ gitt ved
+  $$\F(\x) = A \cdot \x = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}
+  \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \begin{bmatrix} x_1 + 2x_2 \\ 3x_1
+  + 4x_2 \end{bmatrix}.$$
+  en vektorfunksjon.
+  Her skriver vi $\x$ for et punkt $\x = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}$ i $\R^2$. 
+  Siden et punkt i $\R^2$ er det samme som en vektor, kan vi skrive $\F(\x) = A \cdot \x$.
+  Det er vanskelig å tegne grafen til denne funksjonen fordi den lever i fire dimensjoner. Det vi kan gjøre
+  er å velge noen vektorer og se hvor de blir avbildet. For eksempel er
+  $$\F\left(\begin{bmatrix} 1 \\ 0 \end{bmatrix}\right) = \begin{bmatrix} 1 \\ 3 \end{bmatrix}.$$
+  [Illustrasjon]
+\end{eksempel}
+\begin{eksempel}
+  Vanlige funksjoner $f \colon \R \to \R$ kan også oppfattes som vektorfunksjoner. Også funksjoner på formen
+  $f \colon \R^2 \to \R$ er vektorfunksjoner. Vi har allerede sett eksempler på slike funksjoner og deres grafer.
+\end{eksempel}
 \begin{definisjon}
-Funksjonen $\punkt{F}$ er deriverbar i punktet $\punkt{x}_0$ hvis det finnes en $m \times n$-matrise $\punkt{F}'(\punkt{x}_0)$ slik at
+  Funksjonen $\punkt{F}$ er {\em deriverbar} i punktet $\punkt{x}_0$ hvis det finnes en $m \times n$-matrise $\punkt{F}'(\punkt{x}_0)$ slik at
 $$\lim_{\punkt{h}\to 0} \frac{\punkt{F}(\punkt{x}_0+\punkt{h}) - \punkt{F}(\punkt{x}_0) -
 \punkt{F}'(\punkt{x}_0) \cdot \punkt{h}}{|\punkt{h}|} = 0.$$
 Her tas grensen over $\punkt h \in \R^n$ og $| \punkt h|$ er lengden til vektoren $\punkt{h}$.
+
+Funksjonen $\F$ er {\em derivervar} hvis den er deriverbar i alle punktene i
+$\R^n$.
 
 Matrisen $\F(\x_0)'$ kalles den deriverte av $\F$ i punktet $\x_0$. Et annet
 navn for denne matrisen er {\em Jacobimatrisen} til $\F$ i punktet $\x_0$.
@@ -23,11 +45,13 @@ vite er at de har samme regneregler som
 grenseverdier i en variabel og at grenseverdier kan beregnes komponentvis.
 Dette medfører at de generelle derivasjonsreglene for funksjoner av en variabel også gjelder for vektorfunksjoner.
 En annen konsekvens er at 
-$$\punkt{F}'(\punkt{x}) = \begin{bmatrix} \F'_1(\punkt{x}) \\ \F'_2(\punkt{x})
-\\ \vdots \\ \F'_m(\punkt{x}) \end{bmatrix},$$
+$$\punkt{F}'(\punkt{x}) = \begin{bmatrix} F'_1(\punkt{x}) \\ F'_2(\punkt{x})
+\\ \vdots \\ F'_m(\punkt{x}) \end{bmatrix},$$
 hvor matrisen på høyre side er en $m \times n$-matrise fremkommet ved å stable
 $m$ matriser av formen $(1 \times n)$ på hverandre.
-Det vil si $m$ radvektorer, hvor hver radvektor er den deriverte av en funksjon $\F_i$.
+Det vil si $m$ radvektorer, hvor hver radvektor er den deriverte av en funksjon $F_i$.
+
+[Kanskje liten diskusjon av grenser og kontinuitet på en side med lenke]
 
 \begin{definisjon}
   {\em Lineærtilnærmingen} til en vektorfunksjon $\punkt{F}$ som er deriverbar i punktet $\punkt{x}_0$ er
@@ -36,7 +60,8 @@ Det vil si $m$ radvektorer, hvor hver radvektor er den deriverte av en funksjon 
 \end{definisjon}
 
 \begin{eksempel}
-  La $f \colon \R \to \R$ være en vanlig funksjon av en variabel. Betingelsen over kan skrives:
+  La $f \colon \R \to \R$ være en vanlig funksjon av en variabel. Betingelsen
+  for at $f$ er deriverbar i $x_0$ kan skrives:
   $$\lim_{h\to 0} \frac{f(x_0+h) - f(x_0) - f'(x_0) \cdot h}{h} =
   \lim_{h\to 0} \frac{f(x_0+h) - f(x_0)}{h} - f'(x_0) = 0.$$
   Her står altså 
@@ -47,15 +72,16 @@ Det vil si $m$ radvektorer, hvor hver radvektor er den deriverte av en funksjon 
   $$L(x) = f(x_0) + f'(x_0) \cdot (x - x_0).$$
   Grafen til $L(x)$ er tangenten i punktet $x_0$ til grafen til $f$.
 \end{eksempel}
-[illustrasjon av tangent til en funksjon av en variabel]
+[Illustrasjon av tangent til en funksjon av en variabel]
 
 \begin{eksempel}
-  La $\punkt{y} \colon \R \to \R^2$ være en kurve i planet. Betingelsen over kan igjen skrives:
+  La $\punkt{y} \colon \R \to \R^2$ være en kurve i planet. Betingelsen for at
+  $\punkt{y}$ er deriverbar i $x_0$  kan skrives:
   $$\lim_{h\to 0} \frac{\punkt{y}(x_0+h) - \punkt{y}(x_0) - \punkt{y}'(x_0) \cdot h}{h} =
   \lim_{h\to 0} \frac{\punkt{y}(x_0+h) - \punkt{y}(x_0)}{h} - \punkt{y}'(x_0) = 0.$$
   Her står altså 
   $$\punkt{y}'(x_0) = \lim_{h\to 0} \frac{\punkt{y}(x_0+h) - \punkt{y}(x_0)}{h}.$$
-  Denne grensen kan beregens komponentvis slik at hvis 
+  Som bemerket over kan denne grensen beregens komponentvis slik at hvis 
   $$\punkt{y}(t) =
   \begin{bmatrix} y_1(t) \\ y_2(t) \end{bmatrix},$$ så er 
   $$\punkt{y}'(t) =
@@ -71,6 +97,8 @@ Det vil si $m$ radvektorer, hvor hver radvektor er den deriverte av en funksjon 
   \R$ i punktet $\punkt{x}_0$ i en retning $\vektor v \in \R^n$ er gitt ved
   $$D_{\vektor v} f(\punkt{x}_0) = \lim_{t\to 0} \frac{f(\punkt{x}_0 + t\vektor v) - f(\punkt{x}_0)}{t}.$$
 \end{definisjon}
+
+Her legger vi et punkt $\x_0$ og en vektor $t \vektor v$ til punktet $\x_0$ og
 Gitt $\punkt{x_0} \in \R^n$ og en vektor $\vektor v \in \R^n$, er funksjonen 
 $$g(t) = \punkt{x_0} + t\vektor v$$
 en parametrisering av den rette linjen gjennom $\punkt{x_0}$ i retning $\vektor v$.
@@ -105,9 +133,9 @@ Av dette kan vi lese av at
 $$f'(\x_0) = \begin{bmatrix} \frac{\partial f}{\partial x_1}(\x_0) & \dots & \frac{\partial f}{\partial x_n}(\x_0) \end{bmatrix}.$$
 
 For en vektorfunksjon $\F \colon \R^n \to \R^m$ på formen
-$$\F(\x) = \begin{bmatrix} \F_1(\x) \\ \F_2(\x) \\ \vdots \\ \F_m(\x) \end{bmatrix},$$
-kan vi sette inn observasjonene over og se at 
-$$\F'(\x_0) = \begin{bmatrix} \F'_1(\x_0) \\ \F'_2(\x_0) \\ \vdots \\ \F'_m(\x_0) \end{bmatrix}
+$$\F(\x) = \begin{bmatrix} F_1(\x) \\ F_2(\x) \\ \vdots \\ F_m(\x) \end{bmatrix},$$
+har vi
+$$\F'(\x_0) = \begin{bmatrix} F'_1(\x_0) \\ F'_2(\x_0) \\ \vdots \\ F'_m(\x_0) \end{bmatrix}
 = 
 \begin{bmatrix}
   \frac{\partial F_1}{\partial x_1}
@@ -134,14 +162,17 @@ $$\F'(\x_0) = \begin{bmatrix} \F'_1(\x_0) \\ \F'_2(\x_0) \\ \vdots \\ \F'_m(\x_0
 % Hint: Bruk at 
 % $$\lim_{t \to 0} \frac{f(\x_0 + t \vv) - f(\x_0) - f'(\x_0)}{t} = 0$$
 \begin{definisjon}
-  {\em Gradienten} til en vektorfunksjon $F \colon \R^n \to \R$ i et punkt $\x_0 \in \R^n$ er vektoren
+  {\em Gradienten} til en vektorfunksjon $f \colon \R^n \to \R$ i et punkt $\x_0 \in \R^n$ er vektoren
   $$\nabla f(\x_0) = \begin{bmatrix}\frac{\partial f}{\partial x_1}(\x_0) \\ \vdots \\ \frac{\partial f}{\partial x_n}(\x_0)\end{bmatrix} $$
 \end{definisjon}
 \begin{bemerkning}
   Gradienten $\nabla f(\x_0)$ er en kolonnevektor, og $f'(\x_0)$ er
   radvektoren som fås ved å legge denne kolonnevktoren ned som vi gjorde da vi
-  deinerte matrisemultiplikasjon.
+  definerte matrisemultiplikasjon.
 \end{bemerkning}
+Teoremet sammenfatter utsagent i Oppgave \ref{retningsderivertderivert}
+og sammenhengen mellom prikkprodukt og vinkler mellom vektorer. Det gir en ny
+måte å se på gradienten. 
 \begin{teorem}
   Hvis $f\colon \R^n \to \R$ er en skalarfunksjon og $\x_0$ er et punkt slik
   at $f'(\x_0)$ er definert, så er
@@ -151,6 +182,16 @@ $$\F'(\x_0) = \begin{bmatrix} \F'_1(\x_0) \\ \F'_2(\x_0) \\ \vdots \\ \F'_m(\x_0
   Derfor er $\nabla f(\x_0)$ retningen der $f$ vokser raskest i punktet $\x_0$.
 \end{teorem}
 [[eksempel]]
+
+\begin{oppgave}
+  Forklar hvorfor funksjonen $f$ avtar raskest i retning $-\nabla f(\x_0)$.
+\end{oppgave}
+\begin{oppgave}
+  La $f \colon \R^2 \to \R$ være deriverbar og la $\y \colon \R \to \R^2$ være en deriverbar kurve slik at 
+  $\y'(t) = \nabla f(\y(t))$. Forklar hvorfor funksjonen $f(\y(t))$ ikke er avtagende rundt noen $t \in \R$..
+\end{oppgave}
+
+
 
 \subsection{Gradienter og nivåmengder}
 
@@ -165,7 +206,7 @@ $$\F'(\x_0) = \begin{bmatrix} \F'_1(\x_0) \\ \F'_2(\x_0) \\ \vdots \\ \F'_m(\x_0
   begge er definert. Da er 
   $$\nabla f(\punkt{r}(t)) \cdot \punkt{r}'(t) = 0.$$
 \end{teorem}
-Dette er en direkte konsekvens av kjerneregelen:
+Dette er en direkte konsekvens av Oppgave \ref{retningsderivertderivert} og kjerneregelen:
 \begin{displaymath}
   0 = (f \circ \punkt{r})'(t) =
   f'(\punkt{r}(t)) \cdot \punkt{r}'(t) =
