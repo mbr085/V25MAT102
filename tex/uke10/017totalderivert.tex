@@ -1,11 +1,10 @@
 \section{Derivasjon}
 \subsection{Vektorer og totalderiverte}
-En {\em vektorfunksjon} er en funksjon som tar en verdi i $\R^n$ og gir en
-vektor i $\R^m$. En vektorfunksjon kan skrives som en funksjon
-$\punkt{F}:\R^n\to\R^m$ som tar en vektor $\punkt{x}\in\R^n$ og gir en vektor
-$\punkt{F}(\punkt{x})\in\R^m$. En vektorfunksjon kan også skrives som en liste av
-funksjoner, for eksempel
+En {\em vektorfunksjon} er en funksjon som tar en verdi i $\R^n$ og gir en vektor i $\R^m$.
+En vektorfunksjon kan skrives som en funksjon $\punkt{F}:\R^n\to\R^m$ som tar en vektor $\punkt{x}\in\R^n$ og gir en vektor $\punkt{F}(\punkt{x})\in\R^m$.
+En vektorfunksjon kan også skrives som en liste av funksjoner, for eksempel
 $$\punkt{F}(\punkt{x}) = \begin{bmatrix} F_1(\punkt{x}) \\ F_2(\punkt{x}) \\ \vdots \\ F_m(\punkt{x}) \end{bmatrix}.$$
+I teksten under kommer jeg ofte til å skrive "funksjon" når jeg mener "vektorfunksjon".
 
 \begin{eksempel}\label{lineærfunksjon}
   La $A$ være $2 \times 2$-matrisen
@@ -15,10 +14,12 @@ $$\punkt{F}(\punkt{x}) = \begin{bmatrix} F_1(\punkt{x}) \\ F_2(\punkt{x}) \\ \vd
   \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \begin{bmatrix} x_1 + 2x_2 \\ 3x_1
   + 4x_2 \end{bmatrix}.$$
   en vektorfunksjon.
-  Her skriver vi $\x$ for et punkt $\x = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}$ i $\R^2$. 
+
+  Her skriver vi $\x$ for et punkt $\x = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}$ i $\R^2$.
   Siden et punkt i $\R^2$ er det samme som en vektor, kan vi skrive $\F(\x) = A \cdot \x$.
-  Det er vanskelig å tegne grafen til denne funksjonen fordi den lever i fire dimensjoner. Det vi kan gjøre
-  er å velge noen vektorer og se hvor de blir avbildet. For eksempel er
+  Det er vanskelig å tegne grafen til denne funksjonen fordi den lever i fire dimensjoner.
+  Det vi kan gjøre er å velge noen vektorer og se hvorhen de blir avbildet.
+  For eksempel er
   $$\F\left(\begin{bmatrix} 1 \\ 0 \end{bmatrix}\right) = \begin{bmatrix} 1 \\ 3 \end{bmatrix}.$$
 \end{eksempel}
 
@@ -31,27 +32,30 @@ $$\punkt{F}(\punkt{x}) = \begin{bmatrix} F_1(\punkt{x}) \\ F_2(\punkt{x}) \\ \vd
   x_1 + 2x_2 + b_1 \\ 3x_1 + 4x_2 + b_2 \end{bmatrix}.$$
 \end{eksempel}
 \begin{eksempel}
-  Vanlige funksjoner $f \colon \R \to \R$ kan også oppfattes som vektorfunksjoner. Også funksjoner på formen
-  $f \colon \R^2 \to \R$ er vektorfunksjoner. Vi har allerede sett eksempler på slike funksjoner og deres grafer.
+  Vanlige funksjoner $f \colon \R \to \R$ kan også oppfattes som vektorfunksjoner.
+  Også flervariabel funksjoner på formen $f \colon \R^2 \to \R$ er vektorfunksjoner.
+  Vi har allerede sett eksempler på slike funksjoner og deres grafer.
 \end{eksempel}
 \begin{definisjon}
-  Funksjonen $\punkt{F}$ er {\em deriverbar} i punktet $\punkt{x}_0$ hvis det finnes en $m \times n$-matrise $\punkt{F}'(\punkt{x}_0)$ slik at
-$$\lim_{\punkt{h}\to 0} \frac{\punkt{F}(\punkt{x}_0+\punkt{h}) - \punkt{F}(\punkt{x}_0) -
-\punkt{F}'(\punkt{x}_0) \cdot \punkt{h}}{|\punkt{h}|} = 0.$$
-Her tas grensen over $\punkt h \in \R^n$ og $| \punkt h|$ er lengden til vektoren $\punkt{h}$.
+  Funksjonen $\punkt{F}$ er {\em deriverbar} i punktet $\punkt{x}_0$ hvis det finnes en
+  $m \times n$-matrise $\punkt{F}'(\punkt{x}_0)$ slik at
+  $$\lim_{\punkt{h}\to 0} \frac{\punkt{F}(\punkt{x}_0+\punkt{h}) - \punkt{F}(\punkt{x}_0) -
+  \punkt{F}'(\punkt{x}_0) \cdot \punkt{h}}{|\punkt{h}|} = 0.$$
+  Her tas grensen over $\punkt h \in \R^n$ og $| \punkt h|$ er lengden til vektoren $\punkt{h}$.
 
-Funksjonen $\F$ er {\em derivervar} hvis den er deriverbar i alle punktene i
-$\R^n$.
+  Funksjonen $\F$ er {\em derivervar} hvis den er deriverbar i alle punktene i
+  $\R^n$.
 
-Matrisen $\F(\x_0)'$ kalles den deriverte av $\F$ i punktet $\x_0$. Et annet
-navn for denne matrisen er {\em Jacobimatrisen} til $\F$ i punktet $\x_0$.
+  Matrisen $\F(\x_0)'$ kalles den deriverte av $\F$ i punktet $\x_0$. Et annet
+  navn for denne matrisen er {\em Jacobimatrisen} til $\F$ i punktet $\x_0$.
 \end{definisjon}
 
 
-Vi går ikke inn på detalj om grenseverdier i flere variabler. Alt vi trenger å
-vite er at de har samme regneregler som
-grenseverdier i en variabel og at grenseverdier kan beregnes komponentvis.
-Dette medfører at de generelle derivasjonsreglene for funksjoner av en variabel også gjelder for vektorfunksjoner.
+Vi går ikke inn på detalj om grenseverdier i flere variabler.
+Alt vi trenger å vite er at de har samme regneregler som grenseverdier i en variabel
+og at grenseverdier kan beregnes komponentvis.
+En konsekvens er at de generelle derivasjonsreglene for funksjoner av en variabel også
+gjelder for vektorfunksjoner.
 En annen konsekvens er at 
 $$\punkt{F}'(\punkt{x}) = \begin{bmatrix} F'_1(\punkt{x}) \\ F'_2(\punkt{x})
 \\ \vdots \\ F'_m(\punkt{x}) \end{bmatrix},$$
@@ -60,10 +64,11 @@ $m$ matriser av formen $(1 \times n)$ på hverandre.
 Det vil si $m$ radvektorer, hvor hver radvektor er den deriverte av en funksjon $F_i$.
 
 \begin{eksempel}
-  La $\G$ være vektorfunksjonen fra eksempel \ref{affinfunksjon}. Da skal $\G'(\x_0)$ være en matrise slik at 
+  La $\G$ være vektorfunksjonen fra eksempel \ref{affinfunksjon}.
+  Da skal $\G'(\x_0)$ være en matrise slik at 
   $$\lim_{\punkt{h}\to 0} \frac{\punkt{G}(\punkt{x}_0+\punkt{h}) - \punkt{G}(\punkt{x}_0) -
   \punkt{G}'(\punkt{x}_0) \cdot \punkt{h}}{|\punkt{h}|} = 0.$$
-  Regner vi ut dette får vi
+  Regner vi på dette får vi:
   \begin{align*}
     &
     \lim_{\punkt{h}\to 0} \frac{\punkt{G}(\punkt{x}_0+\punkt{h}) -
@@ -102,13 +107,13 @@ Det vil si $m$ radvektorer, hvor hver radvektor er den deriverte av en funksjon 
 \end{eksempel}
 
 \begin{eksempel}
-  La $f \colon \R \to \R$ være en vanlig funksjon av en variabel. Betingelsen
+  La $f \colon \R \to \R$ være en vanlig funksjon. Betingelsen
   for at $f$ er deriverbar i $x_0$ kan skrives:
   $$\lim_{h\to 0} \frac{f(x_0+h) - f(x_0) - f'(x_0) \cdot h}{h} =
   \lim_{h\to 0} \frac{f(x_0+h) - f(x_0)}{h} - f'(x_0) = 0.$$
   Her står altså 
   $$f'(x_0) = \lim_{h\to 0} \frac{f(x_0+h) - f(x_0)}{h}.$$
-  Dette er den vanlige definisjonen av den deriverte av en funksjon av en variabel.
+  Dette er den vanlige definisjonen av den deriverte av en funksjon.
 
   Lineærtilnærmingen til $f$ i punktet $x_0$ er gitt ved
   $$L(x) = f(x_0) + f'(x_0) \cdot (x - x_0).$$
@@ -145,7 +150,7 @@ Gitt $\punkt{x_0} \in \R^n$ og en vektor $\vektor v \in \R^n$, er funksjonen
 $$g(t) = \punkt{x_0} + t\vektor v$$
 en parametrisering av den rette linjen gjennom $\punkt{x_0}$ i retning $\vektor v$.
 Funksjonen $f \circ g$ er en funksjon av en variabel, gitt ved $(f \circ g)(t) = f(g(t))$.
-Den deriverte av denne kompositten
+Den deriverte av denne sammensatte funksjonen
 i punktet $t=0$ er retningsderiverte av $f$ i punktet $\punkt{x_0}$ i retning
 $\vektor v$. Det vil si at
 $D_{\vektor v} f(\punkt{x_0}) = (f \circ g)'(0)$.
@@ -171,7 +176,8 @@ avtar funksjonen $f$ når vi beveger oss vekk fra punktet $\punkt{x}_0$ i retnin
 \end{definisjon}
 Fra oppgave \ref{retningsderivertderivert} har vi at
 $$\frac{\partial f}{\partial x_i}(\x_0) = f'(\x_0)\cdot \vektor{e}_i.$$
-Av dette kan vi lese av at
+Gitt en radvektor $\vv = [v_1, \dots, v_n]$ er $\vv = [\vv \cdot \vektor{e}_1, \dots, \vv \cdot \vektor {e}_n]$.
+Derfor er
 $$f'(\x_0) = \begin{bmatrix} \frac{\partial f}{\partial x_1}(\x_0) & \dots & \frac{\partial f}{\partial x_n}(\x_0) \end{bmatrix}.$$
 
 For en vektorfunksjon $\F \colon \R^n \to \R^m$ på formen
