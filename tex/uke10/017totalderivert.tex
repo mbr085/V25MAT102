@@ -7,7 +7,7 @@ $\punkt{F}(\punkt{x})\in\R^m$. En vektorfunksjon kan også skrives som en liste 
 funksjoner, for eksempel
 $$\punkt{F}(\punkt{x}) = \begin{bmatrix} F_1(\punkt{x}) \\ F_2(\punkt{x}) \\ \vdots \\ F_m(\punkt{x}) \end{bmatrix}.$$
 
-\begin{eksempel}
+\begin{eksempel}\label{lineærfunksjon}
   La $A$ være $2 \times 2$-matrisen
   $$A = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}.$$
   Da er funksjonen $\F \colon \R^2 \to \R^2$ gitt ved
@@ -20,7 +20,15 @@ $$\punkt{F}(\punkt{x}) = \begin{bmatrix} F_1(\punkt{x}) \\ F_2(\punkt{x}) \\ \vd
   Det er vanskelig å tegne grafen til denne funksjonen fordi den lever i fire dimensjoner. Det vi kan gjøre
   er å velge noen vektorer og se hvor de blir avbildet. For eksempel er
   $$\F\left(\begin{bmatrix} 1 \\ 0 \end{bmatrix}\right) = \begin{bmatrix} 1 \\ 3 \end{bmatrix}.$$
-  [Illustrasjon]
+\end{eksempel}
+
+\begin{eksempel}\label{affinfunksjon}
+  Vi fortsetter eksempel \ref{lineærfunksjon} og lar $\punkt{b} = \begin{bmatrix}b_1\\b_2\end{bmatrix}$
+  være et punkt i $\R^2$.
+  Da kan vi konstruere en vektorfunsjon $\G \colon \R^2 \to \R^2$ gitt ved
+  $$\G(\x) = A \cdot \x + \punkt{b} = \begin{bmatrix} x_1 + 2x_2 \\ 3x_1 + 4x_2
+    \end{bmatrix} + \begin{bmatrix} b_1 \\ b_2 \end{bmatrix} = \begin{bmatrix}
+  x_1 + 2x_2 + b_1 \\ 3x_1 + 4x_2 + b_2 \end{bmatrix}.$$
 \end{eksempel}
 \begin{eksempel}
   Vanlige funksjoner $f \colon \R \to \R$ kan også oppfattes som vektorfunksjoner. Også funksjoner på formen
@@ -51,13 +59,47 @@ hvor matrisen på høyre side er en $m \times n$-matrise fremkommet ved å stabl
 $m$ matriser av formen $(1 \times n)$ på hverandre.
 Det vil si $m$ radvektorer, hvor hver radvektor er den deriverte av en funksjon $F_i$.
 
-[Kanskje liten diskusjon av grenser og kontinuitet på en side med lenke]
+\begin{eksempel}
+  La $\G$ være vektorfunksjonen fra eksempel \ref{affinfunksjon}. Da skal $\G'(\x_0)$ være en matrise slik at 
+  $$\lim_{\punkt{h}\to 0} \frac{\punkt{G}(\punkt{x}_0+\punkt{h}) - \punkt{G}(\punkt{x}_0) -
+  \punkt{G}'(\punkt{x}_0) \cdot \punkt{h}}{|\punkt{h}|} = 0.$$
+  Regner vi ut dette får vi
+  \begin{align*}
+    &
+    \lim_{\punkt{h}\to 0} \frac{\punkt{G}(\punkt{x}_0+\punkt{h}) -
+    \punkt{G}(\punkt{x}_0) -
+    \punkt{G}'(\punkt{x}_0) \cdot \punkt{h}}{|\punkt{h}|} \\
+    =
+    &
+    \lim_{\punkt{h}\to 0} \frac{\left(A \cdot (\punkt{x}_0+\punkt{h})  +
+    \punkt{b}\right) - \left(A \cdot \punkt{x}_0  - \punkt{b}\right) -
+    \punkt{G}'(\punkt{x}_0) \cdot \punkt{h}}{|\punkt{h}|}\\
+    =
+    &
+    \lim_{\punkt{h}\to 0} \frac{A \cdot (\punkt{x}_0+\punkt{h})  +
+    A \cdot \punkt{x}_0  - 
+    \punkt{G}'(\punkt{x}_0) \cdot \punkt{h}}{|\punkt{h}|} \\
+    =
+    &
+    \lim_{\punkt{h}\to 0} \frac{A \cdot \punkt{h}  - 
+    \punkt{G}'(\punkt{x}_0) \cdot \punkt{h}}{|\punkt{h}|}.
+  \end{align*}
+  Vi ser at $\G'(\x_0) = A$ er den deriverte til $\G$ i punktet $\x_0$.
+\end{eksempel}
 
 \begin{definisjon}
   {\em Lineærtilnærmingen} til en vektorfunksjon $\punkt{F}$ som er deriverbar i punktet $\punkt{x}_0$ er
   gitt ved
   $$L(\punkt{x}) = \punkt{F}(\punkt{x}_0) + \punkt{F}'(\punkt{x}_0) \cdot (\punkt{x} - \punkt{x}_0).$$
 \end{definisjon}
+
+\begin{eksempel}
+  La igjen $\G$ være vektorfunksjonen fra eksempel \ref{affinfunksjon}. Lineærtilnærmingen til $\G$ i punktet $\x_0$ er gitt ved
+  $$L(\x) = \G(\x_0) + \G'(\x_0) \cdot (\x - \x_0) = A \cdot \x_0 + \punkt{b} + A \cdot (\x - \x_0).$$
+  Siden $A \cdot \x_0 + \punkt{b} + A \cdot (\x - \x_0) = A \cdot \x_0 + A
+  \cdot \x - A \cdot \x_0 + \punkt{b} = A \cdot \x + \punkt{b}$, ser vi at
+  $L(\x) = \G(\x)$.
+\end{eksempel}
 
 \begin{eksempel}
   La $f \colon \R \to \R$ være en vanlig funksjon av en variabel. Betingelsen

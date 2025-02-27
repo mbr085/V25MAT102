@@ -1,0 +1,95 @@
+\documentclass{amsart}
+
+\usepackage{amsmath, amsthm, amscd, amsfonts, amssymb, graphicx, color}
+\usepackage{tikz-cd}
+% \usepackage{amsmath}
+% \usepackage[backend=biber]{biblatex}
+% \addbibresource{references.bib}
+
+\newtheorem{teorem}{Teorem}%[section]
+\newtheorem{lemma}[teorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definisjon}[teorem]{Definisjon}
+\newtheorem{eksempel}[teorem]{Eksempel}
+\newtheorem{oppgave}{Oppgave}
+\theoremstyle{remark}
+\newtheorem{bemerkning}[teorem]{Bemerkning}
+\numberwithin{equation}{section}
+
+%\newcommand{\V}[1]{\mathbf{#1}}
+\newcommand{\punkt}[1]{\mathbf{#1}}
+\newcommand{\vektor}[1]{\vec{\mathbf{#1}}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\F}{\punkt{F}}
+\newcommand{\G}{\punkt{G}}
+\newcommand{\x}{\punkt{x}}
+\newcommand{\y}{\punkt{y}}
+\newcommand{\vv}{\vektor{v}}
+% \newcommand{matrise}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\begin{document}
+
+
+\title{Oppgaver Uke 10}
+\author{Morten}
+\date{\today}
+\maketitle
+
+% \input{010kurver.tex}
+% \input{011funksjoneravnvariable.tex}
+% \input{017totalderivert.tex}
+% \printbibliography
+\section{Oppgave}
+Løs systemet av differensialligninger:
+\begin{align*}
+  x'(t) &= x(t) + 2y(t)\\
+  y'(t) &= 2x(t) - 2y(t)
+\end{align*}
+for startbetingelsene:
+\begin{enumerate}
+  \item $x(0) = 1$ og $y(0) = 0$
+  \item $x(0) = 0$ og $y(0) = 1$
+  \item $x(0) = 1$ og $y(0) = 1$
+\end{enumerate}
+
+\section{Oppgave}
+MIP oppgave 11.4.1. Bruk koden under til å løse oppgaven numerisk.
+
+\section{Oppgave}
+MIP oppgave 11.4.3. Bruk koden under til å løse oppgaven numerisk.
+
+\section{Oppgave}
+MIP oppgave 11.3.4 Bruk koden under til å løse oppgaven numerisk. Løs også oppgaven for hånd.
+
+\section{Oppgave}
+Løs systemet av differensialligninger:
+\begin{align*}
+  x' &= 4x + z \\
+  y' &= -2x + y \\
+  z' &= -2x + z
+\end{align*}
+for startbetingelsene:
+$x(0) = -1$, $y(0) = 0$ og $z(0) = 1$.
+ved å følge disse stegene:
+La $\vec v_0 = 
+\begin{bmatrix}-1\\0\\1\end{bmatrix}$ og la
+$A = \begin{bmatrix}4&0&1\\-2&1&0\\-2&0&1\end{bmatrix}.$
+\begin{enumerate}
+  \item Finn det karakteristiske polynomet $p(t) = \det(A - tI)$.
+  \item Finn røttene til det karakteristiske polynomet $p(t)$. Dette er
+    egenverdiene $\lambda_1$, $\lambda_2$ og $\lambda_2$ til systemet.
+  \item Finn egenvektorene hørende til $\lambda_1$, $\lambda_2$ og $\lambda_3$.
+    Det vil si vektorer $\vec w_1$, $\vec w_2$ og $\vec w_3$ slik at $(A
+    -\lambda_1 I) \vec w_1 = 0$, $(A -\lambda_2 I) \vec w_2 = 0$ og $(A
+    -\lambda_3 I) \vec w_3 = 0$. Disse kan finnes ved å løse lineære
+    ligningssystemer.
+  \item Sjekk at for alle $x$, $y$ og $z$ er $\vec v(t) = 
+    xe^{\lambda_1 t} \vec w_1 + ye^{\lambda_2 t} \vec w_2 + ze^{\lambda_3 t}w_3$ er en
+    funksjon med $\vec v't = A \cdot \vec vt + \vec r$ og $\vec v(t_0) = x\vec
+    w_1 + y \vec w_2 + z\vec w_3$. (Her er rollen til $x$, $y$ og $z$ en helt
+    annen enn i oppgaveformuleringen.)
+  \item Finn $x$, $y$ og $z$ slik at $\vec v_0 = x\vec w_1 + y \vec w_2 + z\vec w_3$.
+  % \item Plot løsningen på intervallet $[0, 5]$ der du lar $t_0 = 0$.
+\end{enumerate}
+Hvis du vil kan du bruke koden under til å gjøre stegene.
+
+\end{document}
