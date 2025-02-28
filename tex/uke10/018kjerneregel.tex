@@ -1,0 +1,64 @@
+\section*{Kjerneregelen}
+\begin{teorem}[Kjerneregelen]
+  \label{kjerneregelen}
+  La $\F \colon \R^n \to \R^m$ være en funksjon som er differensierbar i
+  $\punkt{x}_0 \in \R^n$, og la $\G \colon \R^m \to \R^k$ være en funksjon som er
+  differensierbar i $\punkt{y}_0 = \F(\punkt{x}_0) \in \R^m$. Da er funksjonen $\G \circ \F \colon \R^n \to
+  \R^k$ differensierbar i $\punkt{x}_0$, og
+  $$(\G \circ \F)'(\punkt{x}_0) =  \G'(\punkt{y}_0) \cdot  \F'(\punkt{x}_0).$$
+\end{teorem}
+
+\begin{eksempel}
+  Vi kan bruke denne versjonen av kjerneregelen til å se at $\frac{d}{dx} x^2 =
+  2x$. La $\F \colon \R \to \R^2$ være gitt ved $\F(x) = (x, x)$ og $\G \colon
+  \R^2 \to \R$ være gitt ved $\G(x, y) = x \cdot y$.
+  De deriverte av $\F$ og $\G$ er gitt ved
+  $$\F'(x) = \begin{bmatrix} 1 \\ 1 \end{bmatrix} \quad \text{og} \quad \G'(x, y)
+  = \begin{bmatrix} y & x \end{bmatrix}.$$
+  Da er $\G \circ \F(x) = x^2$,
+  og vi kan bruke kjerneregelen til å regne ut den deriverte:
+  \begin{align*}
+    \frac{d}{dx} x^2 &= (\G \circ \F)'(x) = \G'(x, x) \cdot \F'(x) \\
+    &= \begin{bmatrix} x & x \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix} = x + x = 2x.
+    \end{align*}
+\end{eksempel}
+
+\begin{eksempel}
+  Vi kan bruke denne versjonen av kjerneregelen til forklare produktregelen for
+  derivasjon.
+  La $f \colon \R \to \R$ og $g \colon \R \to \R$ være to funksjoner som er
+  differensierbare i $x_0$.
+  La $\F \colon \R \to \R^2$ være gitt ved $\F(x) = (f(x), g(x))$ og $\G \colon
+  \R^2 \to \R$ være gitt ved $\G(x, y) = x \cdot y$.
+  De deriverte av $\F$ og $\G$ er gitt ved
+  $$\F'(x) = \begin{bmatrix} f'(x) \\ g'(x) \end{bmatrix} \quad \text{og} \quad \G'(x, y)
+  = \begin{bmatrix} y & x \end{bmatrix}.$$
+  Da er $\G \circ \F(x) = x^2$,
+  og vi kan bruke kjerneregelen til å regne ut den deriverte:
+  \begin{align*}
+    \frac{d}{dx} x^2 &= (\G \circ \F)'(x) = \G'(f(x), g(x)) \cdot \F'(x) \\
+    &= \begin{bmatrix} g(x) & f(x) \end{bmatrix} \begin{bmatrix} f'(x) \\ g'(x)
+  \end{bmatrix} = g(x) f'(x) + f(x) g'(x).
+    \end{align*}
+\end{eksempel}
+\subsection{Gradienter og nivåmengder}
+
+\begin{definisjon}
+  En {\em nivåkurve} til en funksjon $f \colon \R^n \to \R$ er en kurve
+  $\punkt{r} \colon \R \to \R^n$
+  slik at $f(\punkt{r}(t)) = c$ for en konstant $c$.
+\end{definisjon}
+\begin{teorem}
+  Gitt $f \colon \R^n \to \R$ og en nivåkurve $\punkt{r} \colon \R \to \R^n$
+  til $f$ og et tall $t$ slik at de deriverte  $\punkt{r}'(t)$ og $f'(\punkt{r}(t))$
+  begge er definert. Da er 
+  $$\nabla f(\punkt{r}(t)) \cdot \punkt{r}'(t) = 0.$$
+\end{teorem}
+Dette er en direkte konsekvens av Oppgave \ref{retningsderivertderivert} og kjerneregelen:
+\begin{displaymath}
+  0 = (f \circ \punkt{r})'(t) =
+  f'(\punkt{r}(t)) \cdot \punkt{r}'(t) =
+  \nabla f(\punkt{r}(t)) \cdot \punkt{r}'(t).
+\end{displaymath}
+
+Hvis $\punkt{r} \colon \R \to \R^n$ er en hvilken som helst deriverbar kurve, så er $\nabla f(\punkt{r}(t)) \cdot \punkt{r}'(t)$ den deriverte til $f \circ \punkt{r}$. Det vil si at $\nabla f(\punkt{r}(t))$ er endringsraten til funksjonen $f$ langs kurven $\punkt{r}$.
