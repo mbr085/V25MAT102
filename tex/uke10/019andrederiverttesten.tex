@@ -1,0 +1,125 @@
+\section*{Andrederiverttesten}
+
+Vi kommer nå til å snakke om lokale ekstremalpunkter for funksjoner av flere
+variable. Vi skal se på en test som kan brukes for å avgjøre om et punkt er et
+lokalt minimum eller maksimum for en funksjon av flere variable.
+
+Før vi kommer så langt, må jeg forklare hva jeg mener med et lokalt minimum og
+sadelpunkt. La $f \colon \R^n \to \R$ være en funksjon
+og la $\x_0 \in \R^n$ være et punkt.
+Vi sier at $f$ har et lokalt minimum
+i $\x_0 \in \R^n$ dersom det finnes
+en omegn $U$ om $x_0$ slik at $f(\x) \geq f(\x_0)$ for alle $\x \in U$. 
+At $U$ er en omegn av $\x_0$ betyr at et akseparallelt rektangel med positive kantlengter
+sentrert i $\x_0$ er inneholdt i $U$.
+At $R$ er et akseparallelt rektangel betyr at $R$
+at det finnes punkter
+$$\punkt{a} = \begin{bmatrix} a_1 \\ \vdots \\ a_n \end{bmatrix} \quad \text{og} \quad
+\punkt{b} = \begin{bmatrix} b_1 \\ \vdots \\ b_n \end{bmatrix}$$
+slik at
+$$R = \{ \x \in \R^n \mid a_i < x_i < b_i \text{ for } i = 1, \ldots, n \}.$$
+At $R$ er sentrert i $\x_0$ betyr at $\x_0 = (\punkt{b} + \punkt{a}) / 2$ og at $\x_0 \in R$.
+
+
+Vi sier at $f$ har et lokalt maksimum
+i $\x_0 \in \R^n$ dersom det finnes
+en omegn $U$ om $x_0$ slik at $f(\x) \leq f(\x_0)$ for alle $\x \in U$. 
+
+[Illustrasjon for $\R^2$]
+
+Vi har følgende test for å avgjøre om $f$ har et lokalt minimum,
+maksimum eller ingen av delene i et punkt $\x_0$:
+
+\begin{teorem}[Andrederiverttesten]
+  La $f \colon \R^n \to \R$ være en funksjon som er to ganger deriverbar for
+  alle punkter $\x$ i et akseparallelt rektangel sentrert i et punkt $\x_0 \in
+  \R^n$. 
+  La $H$ være matrisen
+  $$H = \begin{bmatrix}
+    \frac{\partial^2 f}{\partial x_1 \partial x_1}(\x_0) & \frac{\partial^2 f}{\partial x_1 \partial x_2}(\x_0) & \cdots & \frac{\partial^2 f}{\partial x_1 \partial x_n}(\x_0) \\
+    \frac{\partial^2 f}{\partial x_2 \partial x_1}(\x_0) & \frac{\partial^2 f}{\partial x_2 \partial x_2}(\x_0) & \cdots & \frac{\partial^2 f}{\partial x_2 \partial x_n}(\x_0) \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \frac{\partial^2 f}{\partial x_n \partial x_1}(\x_0) & \frac{\partial^2 f}{\partial x_n \partial x_2}(\x_0) & \cdots & \frac{\partial^2 f}{\partial x_n \partial x_n}(\x_0).
+    \end{bmatrix}$$
+    Dette er {\em Hesse-matrisen} til $f$ i punktet $\x_0$. Anta at $\nabla F(\x_0) = 0$.
+    Da har vi følgende:
+    \begin{enumerate}
+      \item Hvis alle egenverdiene til $H$ er positive, så har $f$ et lokalt minimum i $\x_0$.
+      \item Hvis alle egenverdiene til $H$ er negative, så har $f$ et lokalt maksimum i $\x_0$.
+      \item Hvis $H$ har både positive og negative egenverdier, så har $f$
+        verken et lokalt minimum eller maksimum i $\x_0$.
+    \end{enumerate} 
+
+    På den andre siden, hvis $f$ har et lokalt maksimum eller et lokalt minimum i
+    $\x_0$, så er $\nabla F(\x_0) = 0$.
+\end{teorem}
+\begin{eksempel}
+  La $f \colon \R^2 \to \R$ være gitt ved
+
+  $$f(\begin{bmatrix} x_1 \\ x_2 \end{bmatrix}) =
+  e^{-(x_1^2 + x_2^2)}.$$
+  Gradienten til $f$ er
+  $$\nabla f(\begin{bmatrix} x_1 \\ x_2 \end{bmatrix}) =
+  \begin{bmatrix} -2x_1 e^{-(x_1^2 + x_2^2)} \\ -2x_2 e^{-(x_1^2 + x_2^2)} \end{bmatrix}.$$
+  Hesse matrisen til $f$ er
+  $$H = \begin{bmatrix}
+    \frac{\partial^2 f}{\partial x_1 \partial x_1} & \frac{\partial^2 f}{\partial x_1 \partial x_2} \\
+    \frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2 \partial x_2}
+    \end{bmatrix} = \begin{bmatrix}
+    2e^{-(x_1^2 + x_2^2)}(2x_1^2 - 1) & 4x_1x_2 e^{-(x_1^2 + x_2^2)} \\
+    4x_1x_2 e^{-(x_1^2 + x_2^2)} & 2e^{-(x_1^2 + x_2^2)}(2x_2^2 - 1)
+    \end{bmatrix}.$$
+    Vi ser at
+    $\nabla f(\x) = 0$ hvis $x_1 = 0$ og $x_2 = 0$, og ellers er $\nabla f(\x) \neq 0$.
+    Hesse-matrisen i punktet $\x_0 = \begin{bmatrix}0\\0\end{bmatrix}$ er
+    $$H = \begin{bmatrix}
+      -2 & 0 \\
+      0 & -2
+    \end{bmatrix}.$$
+    Det vil si at $H$ har kun egenverdien $-2$ som er negativ. Derfor er punktet $\x_0$ et 
+    lokalt maksimum for $f$. Dessuten har $f$ ingen andre lokale maksima eller minima.
+\end{eksempel}
+
+Jeg vil avslutte med å gi en ide om på hvorfor andrederiverttesten fungerer.
+La oss si at $\x_0$ er et lokalt maksimum for $f$. Hvis $\punkt{r} \colon \R \to \R^n$ er en 
+deriverbar kurve med $\punkt{r}(t_0) = \x_0$, da vet vi fra test for ekstramalpunkter for
+deriverbare reelle funksjoner fra MIP kapittel 5 siden $f \circ r$  har et lokalt maksimum i $t_0$,
+er den deriverte av $f \circ r$ lik null i $t_0$. Derfor er
+$$(f \circ \punkt{r})'(t_0) = \nabla f(\x_0) \cdot \punkt{r}'(t_0) = 0.$$
+Siden dette er sant for alle deriverbare kurver $\punkt{r}$ som passerer gjennom $\x_0$, så må
+$$\nabla f(\x_0) \cdot \vec{v} = 0$$
+for alle vektorer $\vec{v} \in \R^n$. Dette betyr at $\nabla f(\x_0) = 0$. (Hvorfor?)
+
+Diskusjonen over viser at hvis $\x_0$ er et lokalt maksimum for $f$, så er $\nabla f(\x_0) = 0$.
+
+La meg nå prøve å forklar hvorfor $\x_0$ er et lokalt maksimum for $f$ hvis både $\nabla f(\x_0) = 0$
+og alle egenverdiene til Hesse-matrisen er negative.
+
+La $\punkt{r} \colon \R \to \R^n$ være en deriverbar kurve med $\punkt{r}(t_0) = \x_0$. 
+Den andrederiverte av $f \circ \punkt{r}$ i $t_0$ er
+$$(f \circ \punkt{r})''(t_0) = g'(t_0)$$
+der kjerneregelen gir at
+$$g(t) = (f \circ \punkt{r})'(t) = f'(\punkt{r}(t)) \cdot \punkt{r}'(t) =
+\nabla f(\punkt{r}(t)) \cdot \punkt{r}'(t).$$
+Produktregelen gir at
+$$g'(t) = (\nabla f \circ \punkt{r})'(t) \cdot \punkt{r}'(t) + \nabla f(\punkt{r}(t)) \cdot \punkt{r}''(t).$$
+Siden $\nabla f(\x_0) = 0$ er
+$$g'(t_0) = (\nabla f \circ \punkt{r})'(t_0) \cdot \punkt{r}'(t) = \punkt{r}'(t_0) \cdot(H \cdot \punkt{r}'(t_0)),$$
+hvor den siste likheten kommer fra definisjonen av Hesse-matrisen.
+Jeg hopper over forklaringen av hvorfor dette er sant.
+En annen ting jeg vil bruke uten å forklare det er at 
+$$\frac{\partial^2 f}{\partial x_i \partial x_j}(\x_0) = \frac{\partial^2 f}{\partial x_j \partial x_i}(\x_0),$$
+og at det gjør at enhver vektor $\vec{v}$ kan skrives som
+en sum av egenvektorer til $H$.
+Skriv nå $\punkt{r}'(t_0)$ som en sum av egenvektorer til $H$:
+$$\punkt{r}'(t_0) = \sum_{i=1}^n \vec{v}_i$$
+som alle har negative egenverdier $\lambda_i$ og som er ortogonale: $\vec{v}_i \cdot \vec{v}_j = 0$ for $i \ne j$ 
+og $\vec{v_i} \cdot \vec{v}_i = 1$ for alle $i$.
+Da er
+$$g'(t_0) = \punkt{r}'(t_0) \cdot (H \cdot \punkt{r}'(t_0)) = \sum_{i, j=1}^n
+\vec{v}_i \cdot (H \cdot \vec{v}_j) = \sum_{i, j=1}^n \lambda_i \vec{v}_i \cdot
+\vec{v}_j = \sum_{i=1}^n \lambda_i  < 0.$$
+Fra testen for ekstramalpunkter for reelle funksjoner ser vi at $f \circ
+\punkt{r}$ har et lokalt maksimum i $t_0$.
+Siden dette er sant for alle deriverbare kurver $\punkt{r}$ som passerer gjennom
+$\x_0$, så må $f$ ha et lokalt maksimum i $\x_0$.
