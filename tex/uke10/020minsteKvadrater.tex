@@ -1,0 +1,27 @@
+\begin{eksempel}
+  La $A$ være en $m \times n$-matrise, og la $\vektor b$ være en vektor i $\R^m$.
+  Vi kommer til å se på problemet med å finne en vektor $\vektor x$ som minimerer
+  kvadratsummen av avvikene mellom $A\vektor x$ og $\vektor b$. La oss skrive
+  $$S(\vektor x) = |A\vektor x - \vektor b|^2 = (A\vektor x - \vektor b) \cdot (A\vektor x - \vektor b).$$  
+  Dette er en funksjon av $\vektor x$, og vi ønsker å finne minimumspunktet til denne funksjonen.
+  Vi kan skrive funksjonen $S \colon \R^n \to \R$ som en sammensatt funksjon: La $G \colon \R^n \to \R^m$
+  være funksjonen $G(\vektor x) = A\vektor x - \vektor b$, og la $F \colon \R^m \to \R$ være funksjonen
+  $F(\vektor y) = |\vektor y|^2 = \vektor y \cdot \vektor y$. Da er $S = F \circ G$.
+  Kjerneregelen gir oss at
+  $$S'(\vektor x) = F'(G(\vektor x)) \cdot G'(\vektor x).$$
+  Vi har allerede sett at $G'(\vektor x) = A$.
+  Funksjonen $F$ kan skrives som $F(\vektor y) = \vektor y \cdot \vektor y = \sum_{i=1}^m y_i^2$.
+  Derfor er $F'(\vektor y) = [2y_1, 2y_2, \ldots, 2y_m] = 2[y_1, y_2, \dots, y_m]$.
+  Jeg vil nå skrivemåten $\vektor y^T = [y_1, y_2, \dots, y_m]$ for radvektoren jeg får
+  ved å legge kolonnevektoren $\vektor y$ ned.
+  Tilsvarende vil jeg skrive $A^T$ for matrisen jeg får ved å legge alle
+  kolonnene i $A$ ned og stable dem opp på hverandre:
+  Hvis $A = [\vektor a_1, \vektor a_2, \dots, \vektor a_n]$, så er
+  $$A^T = \begin{bmatrix}\vektor a_1^T \\ \vektor a_2^T \\ \vdots \\ \vektor a_n^T\end{bmatrix}.$$
+
+  Jeg kan nå skrive $F'(G(\vektor x)) = F'(A\cdot \vektor x + \vektor b) = 2(A
+  \vektor x + b)^T$ så
+  bruker vi regelen $(A \cdot \vektor x)^T = \vektor x^T \cdot A^T$ ser vi at
+  $$S'(\vektor x) = 2(A\cdot \vektor x - \vektor b)^T \cdot A = 2(\vektor x^T
+  \cdot A^T \cdot A - \vektor b^T \cdot A).$$
+\end{eksempel}
