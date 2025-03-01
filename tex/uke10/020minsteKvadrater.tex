@@ -24,4 +24,20 @@
   bruker vi regelen $(A \cdot \vektor x)^T = \vektor x^T \cdot A^T$ ser vi at
   $$S'(\vektor x) = 2(A\cdot \vektor x - \vektor b)^T \cdot A = 2(\vektor x^T
   \cdot A^T \cdot A - \vektor b^T \cdot A).$$
+
+  For å finne minimumspunktet til $S$ må vi sette $S'(\vektor x) = 0$. Dette gir
+  oss likningen
+  $$2(\vektor x^T \cdot A^T \cdot A - \vektor b^T \cdot A) = 0.$$
+  Jeg vil se på denne likningen som en likning for kolonnevektoren $\vektor x$.
+  Derfor transponerer jeg likningen og får
+  $$2A^T \cdot A \cdot \vektor x = 2A^T \cdot \vektor b.$$
+  Dette er et vanlig lineært likningssystem, og vi kan løse det ved å redusere
+  den tilhørende utvidede matrisen.
+
+  Bemerk at hvis $\vektor v$ er en egenvektor for $H$ med egenverdi $\lambda$ så er
+  $H\vektor v = \lambda \vektor v$ og derfor er $H^T \vektor v = \lambda \vektor v$.
+  Dette gir 
+  $$\lambda |\vektor v|^2 = \vektor v \cdot \lambda \vektor v = 
+  \vektor v \cdot (H \cdot \vektor v) = 2(A^T \cdot \vektor v) \cdot
+  (A^T \cdot \vektor v) = 2|A^T \cdot \vektor v|^2 \ge 0$$
 \end{eksempel}
