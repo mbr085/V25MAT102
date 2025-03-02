@@ -1,3 +1,11 @@
+La 
+$$A = \begin{bmatrix}1 & 1 \\ 2 & 1 \\ 3 & 1\end{bmatrix} \quad \text{og} \quad
+b = \begin{bmatrix}2 \\ 3 \\ 4\end{bmatrix}.$$
+Vi kan regne ut at $A^T \cdot A = \begin{bmatrix}14 & 6 \\ 6 & 3\end{bmatrix}$ og
+at $A^T \cdot b = \begin{bmatrix}20 \\ 9\end{bmatrix}$. Derfor kan
+$\nabla S(\vektor x) = 2(A^T \cdot A \cdot \vektor x - A^T \cdot b)$ skrives
+$$\begin{bmatrix}14 & 6 \\ 6 & 3\end{bmatrix} \begin{bmatrix}x_1 \\ x_2\end{bmatrix} + 
+\begin{bmatrix}20 \\ 9\end{bmatrix} = \begin{bmatrix}14x_1 + 6x_2 + 20 \\ 6x_1 + 3x_2 + 9\end{bmatrix}.$$
 \begin{eksempel}
   La $A$ være en $m \times n$-matrise, og la $\vektor b$ være en vektor i $\R^m$.
   Vi kommer til å se på problemet med å finne en vektor $\vektor x$ som minimerer

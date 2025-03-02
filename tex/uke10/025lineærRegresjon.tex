@@ -1,0 +1,79 @@
+I dette avsnittet knytter vi flervariabel kalkulus til problemet vi started med der vi spurte om 
+temperaturen i Bergen er gått opp i den tiden vi har data for.
+
+La oss si at vi har målt temperaturene $y_1, y_2, \dots y_n$ til tidene $t_1, t_2, \dots, t_n$.
+Vi kan først spørre hva stigningstallet til den rette linjen som passer best til disse dataene er.
+
+La oss si at vi har en linje $L(t) = x_1t + x_2$ git ved parametrene $x_1$ og $x_2$ som vi oppfatter
+som et punkt $\x = \begin{bmatrix}x_1\\x_2\end{bmatrix}$ i $\R^2$. Vi setter kosten $S(\punkt x)$
+til å være summen av kvadratene til avvikene mellom
+målingene og linjen:
+$$S(\punkt x) = \sum_{i=1}^n (y_i - x_1t_i - x_2)^2.$$
+Vi har sett at dette er en funksjon av to variable, og vi kan derfor bruke
+flervariabel kalkulus til å finne minimumspunktet til denne funksjonen.
+Skriver vi
+$$A = \begin{bmatrix}t_1 & 1 \\ t_2 & 1 \\ \vdots & \vdots \\ t_n & 1\end{bmatrix} \quad \text{og} \quad
+\y = \begin{bmatrix}y_1 \\ y_2 \\ \vdots \\ y_n\end{bmatrix},$$
+er $S(\vektor x) = |A\vektor x - \y|^2 = (A\vektor x - \y) \cdot (A\vektor x - \y)$.
+Gradienten til $S$ gitt ved
+$$\nabla S(\vektor x) =  \begin{bmatrix} \frac{\partial S}{\partial x_1} \\
+\frac{\partial S}{\partial x_2} \end{bmatrix}
+= 2(A^T \cdot A \cdot \vektor x - A^T \cdot \y)$$
+
+Vi skriver $E(\punkt t) = (t_1 + t_2 + \dots + t_n)/n$ og $E(\punkt t^2) = (t_1^2 + t_2^2 + \dots + t_n^2)/n$ for 
+gjennomsnitlig tid og gjennomsnittlig tid kvadrert. Dessuten skriver vi $E(\y) = (y_1 + y_2 + \dots + y_n)/n$ og
+$E(\y \punkt t) = (y_1t_1 + y_2t_2 + \dots + y_nt_n)/n$ for gjennomsnittlig temperatur og gjennomsnittlig produkt av
+temperatur og tid. Med denne skrivemåten kan vi gjøre en mellomregning og skrive
+$$\nabla S(\vektor x) = 2n\left(
+\begin{bmatrix}E(\punkt t^2) & E(\punkt t) \\ E(\punkt t) & 1\end{bmatrix} \begin{bmatrix}x_1 \\ x_2\end{bmatrix} - \begin{bmatrix}E(\y \punkt t)\\E(\y)\end{bmatrix}\right)$$
+For å finne minimumspunktet til $S$ må vi sette $\nabla S(\vektor x) = 0$. Dette gir et likningssystem som vi kan løse for å finne $x_1$ og $x_2$. Den utvidede matrisen til dette likningssystemet er $2n$ ganger
+$$\begin{bmatrix}E(\punkt t^2) & E(\punkt t) & E(\y \punkt t) \\ E(\punkt t) & 1 & E(\y)\end{bmatrix}.$$
+La oss eliminere denne matrisen. Først trekker $E(\punkt t)$ ganger den andre raden fra den første raden, og deretter deler vi den første raden på $E(\punkt t^2) - E(\punkt t)^2$. Da får vi
+$$\begin{bmatrix}1 & 0  & \frac{E(\y \punkt t) - E(\punkt t)E(\y)}{E(\punkt t^2) - E(\punkt t)^2} \\ E(\punkt t) & 1 & E(\y)\end{bmatrix}.$$
+Deretter trekker vi $E(\punkt t)$ ganger den første raden fra den andre raden. Da får vi
+$$\begin{bmatrix}1 & 0 &
+  \frac{E(\y \punkt t)E(\punkt t) - E(\y)E(\punkt t^2)}{E(\punkt t^2) - E(\punkt t)^2} \\
+0 & 1 &
+E(\y) - \frac{E(\y \punkt t)E(\punkt t) - E(\y)E(\punkt t^2)}{E(\punkt t^2) - E(\punkt t)^2}E(\punkt t) 
+\end{bmatrix}.$$
+Vi kan nå lese av at $x_1$ er gitt ved
+$$x_1 = \frac{E(\y \punkt t)E(\punkt t) - E(\y)E(\punkt t^2)}{E(\punkt t^2) - E(\punkt t)^2}$$
+og at $x_2$ er gitt ved
+$$x_2 = E(\y) - \frac{E(\y \punkt t)E(\punkt t) - E(\y)E(\punkt t^2)}{E(\punkt t^2) - E(\punkt t)^2}E(\punkt t).$$
+Her kan vi også skrive $x_2 = E(\y) - x_1E(\punkt t)$.
+Vi kan bemerke at $x_1$ er stigningstallet til linjen, mens $x_2$ er skjæringspunktet med $y$-aksen.
+
+Det går faktisk an å skrive uttrykket for $x_1$ på en annen måte. Vi har
+$E(\y \punkt t) = E(\y)E(\punkt t) + \text{cov}(\y, \punkt t)$ og
+$E(\punkt t^2) = E(\punkt t)^2 + \text{var}(\punkt t)$, der $\text{cov}(\y,
+\punkt t)$ er kovariansen mellom $\y$ og $\punkt t$ og $\text{var}(\punkt t)$
+er variansen til $\punkt t$. Derfor får vi
+$$x_1 = \frac{\text{cov}(\y, \punkt t)}{\text{var}(\punkt t)}.$$
+
+Her er kovariansen mellom $\y$ og $\punkt t$ gitt ved
+$$\text{cov}(\y, \punkt t) = \frac{1}{n}\sum_{i=1}^n (y_i - E(\y))(t_i - E(\punkt t)) = E((\punkt y - E(\punkt y))(\punkt t - E(\punkt t))$$
+og variansen til $\punkt t$ er gitt ved
+$$\text{var}(\punkt t) = \frac{1}{n}\sum_{i=1}^n (t_i - E(\punkt t))^2 = E((\punkt t - E(\punkt t))^2).$$
+Vi kommer ikke til å gå inn i detaljene hvorfor dette kalles kovarians og
+varians. Det er nok å si at dette er standardbegreper i statistikk.
+
+La oss til slutt sjekke at $E(\punkt y \punkt t) = E(\punkt y) E(\punkt t) + \text{cov}(\y, \punkt t)$:
+Ganger vi inn i parantesene og bruker vi at $\y \mapsto E(\y) = \frac{1}{n}\sum_i y_i$ er lineær får vi at
+\begin{align*}
+  \text{cov}(\y, \punkt t) 
+  &=
+  E((\y - E(\y))(\punkt t - E(\punkt t)))\\
+  &= E(\y\punkt t) - E(E(\y)\punkt t) -
+  E(\y E(\punkt t)) + E(\y)( \punkt t) \\
+  &= E(\y\punkt t) - E(\y)E(\punkt t) -
+  E(\y ) E(\punkt t)+ E(\y)( \punkt t) \\
+  &= E(\y\punkt t) - E(\y)E(\punkt t) .
+\end{align*}
+Derfor er
+$$
+E(\y) E(\punkt t) + \text{cov}(\y, \punkt t) = 
+E(\y) E(\punkt t) +
+  E(\y\punkt t) - E(\y)E(\punkt t) 
+  = E(\y\punkt t).$$
+På samme måte ser vi at $E(\punkt t^2) = E(\punkt t)^2 + \text{var}(\punkt t)$.
+
