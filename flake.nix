@@ -21,6 +21,8 @@ inputs = {
           pkgs.stdenv
           pkgs.ghostscript
           pkgs.zlib
+          pkgs.vtk
+          pythonPackages.vtk
         ];
 
         shellHook = ''
