@@ -1,0 +1,45 @@
+Vi ser nå på to funksjoner $f, g \colon \R^n \to \R$. Problemet vi
+stiller oss er å finne et minmum for $f$ på mengden $M = \{ \x \in \R^n \mid
+g(\x) = 0 \}$. Vi antar at $f$ og $g$ er differensierbare og at $\nabla g(\x)
+\ne 0$ for alle $\x \in M$.
+
+I situasjonen over sier vi også at vi søker et minimum for $f$ under betingelsen $g(x) = 0$.
+
+Vi følger nøye strategien fra gradient descent: La $\y \colon \R \to \R^n$ være en
+løsning til differensialligningen
+$$\y'(t) = - \nabla f(\y(t)) + \lambda(t) \nabla g(\y(t))$$
+der $\lambda \colon \R \to \R$ er funksjonen
+$$\lambda(t) = \frac{\nabla f(\y(t)) \cdot \nabla g(\y(t))}{\nabla g(\y(t)) \cdot \nabla g(\y(t))}.$$
+
+Fra kjerneregelen har vi at $(g \circ y)'(t) = \nabla g(\y(t)) \cdot \y'(t).$
+
+\begin{oppgave}
+  Vis at $(g \circ y)'(t) = 0$ for alle $t$.
+\end{oppgave}
+
+Siden $|\nabla f(\y(t)) \cdot \nabla g(\y(t)) \le |\nabla f(\y(t)| |\nabla g(\y(t))||$, ser vi at
+
+\begin{align*}
+  (f \circ g)'(t)
+  &= \nabla f(\y(t)) \cdot \y'(t)\\
+  &= -|\nabla f(\y(t)|^2 +
+  \frac{(\nabla f(\y(t)) \cdot \nabla g(\y(t)))^2}
+  {(\nabla g(\y(t)) \cdot \nabla g(\y(t)))}
+  \le\\
+  &= -|\nabla f(\y(t)|^2 +
+  \frac{|\nabla f(\y(t))|^2 |\nabla g(\y(t))|^2}
+  {|\nabla g(\y(t))|^2} = 0.
+\end{align*}
+
+Som for gradient descent ser vi at dersom $\y(t)$ går mot et punkt $\punkt p$ for $t \to \infty$, da er
+$(f \circ \y)'(t) \to 0$ for $t \to \infty$. Siden 
+$(f \circ \y)'(t) = -| \nabla f(\y(t))|^2 + \lambda(t)\nabla f(\y(t)) \cdot \nabla
+g(\y(t)) $ for alle $t$, ser vi at
+$-| \nabla f(\punkt p)|^2 + \lambda(t)\nabla f(\punkt p) \cdot \nabla g(\punkt p) =0$.
+Setter si inn for $\lambda(t)$ og setter vi $\widetilde \lambda = \lim_{t \infty} \lambda(t)$ 
+får vi at dette bare er mulig dersom $\nabla f(\punkt p) = \widetilde \lambda \nabla g(\punkt p)$.
+
+Omvendt, hvis $\punkt p$ er et minimum for $f$ under betingelsen $g(\x) = 0$,
+da er $\nabla f(\punkt p) = \widetilde \lambda \nabla g(\punkt p)$ for en
+$\widetilde \lambda$ fordi den konstante funksjonen $\y(t) = \punkt p$ er en løsning til differensialligningen
+over.
