@@ -43,3 +43,98 @@ Omvendt, hvis $\punkt p$ er et minimum for $f$ under betingelsen $g(\x) = 0$,
 da er $\nabla f(\punkt p) = \widetilde \lambda \nabla g(\punkt p)$ for en
 $\widetilde \lambda$ fordi den konstante funksjonen $\y(t) = \punkt p$ er en løsning til differensialligningen
 over.
+
+\begin{teorem}
+  Hvis $\punkt p$ er et minimum for $f$ under betingelsen $g(\x) = 0$, da
+  er vektorene $\nabla f(\punkt p)$ og $\nabla g(\punkt p)$ parallelle. Det vi
+  vil si at der finnes et tall $\widetilde \lambda$ slik at $\nabla f(\punkt p)
+  = \widetilde
+  \lambda \nabla g(\punkt p)$.
+\end{teorem}
+
+\begin{eksempel}
+  La $f\colon \R^2 \to \R$ være funksjonen
+  $$f(\begin{bmatrix}x\\y\end{bmatrix}) = x^2 + 4y^2 -2x + 8y.$$
+  Vi vil finne alle lokale minima for $f$ under betingelsen $x + 2y = 7$.
+
+  La $g\colon \R^2 \to \R$ være funksjonen $g(\begin{bmatrix}x\\y\end{bmatrix})
+  = x + 2y - 7$.
+
+  Geometrisk sett sier teoremet til Lagrange at tangentene til nivåkurvene til
+  $f$ og $g$ må være parallelle. (Egentlig sier det at gradiengene, som står
+  vinkelrett på tangentene, må være parallelle, men det er det samme som å si
+  at tangentene er parallelle.)
+
+  Gradientene til $f$ og $g$ er
+  $$\nabla f(\begin{bmatrix}x\\y\end{bmatrix}) = \begin{bmatrix}2x - 2\\8y + 8\end{bmatrix}$$
+  og 
+  $$\nabla g(\begin{bmatrix}x\\y\end{bmatrix}) = \begin{bmatrix}1\\2\end{bmatrix}.$$
+  Hvis $\begin{bmatrix}x\\y\end{bmatrix}$ er et minimumspunkt for $f$ under betingelsen $g(\begin{bmatrix}x\\y\end{bmatrix}) = 0$, da må det finnes et tall $ \lambda$ slik at
+  $$\begin{bmatrix}2x - 2\\8y + 8\end{bmatrix} =  \lambda
+  \begin{bmatrix}1\\2\end{bmatrix}.$$
+  Dette kan skrives som to likninger.
+  $$
+  2x - \lambda = 2$$
+  og 
+  $$
+  8y - 2\lambda = -8.$$
+  Begingelsen $g(x) = 0$ blir
+  $$x + 2y = 7.$$
+  Vi har nå tre likninger og tre ukjente.
+\end{eksempel}
+\begin{oppgave}
+  Løs likningssystemet over. Bruk gjerne Gauss-eliminasjon.
+\end{oppgave}
+
+
+
+\begin{eksempel}
+  La $g\colon \mathbb{R}^2 \to \mathbb{R}$ være funksjonen
+  $$g(\begin{bmatrix}x\\y\end{bmatrix}) = x^2 + 4y^2 -2x + 8y -27$$
+  og la 
+  $$f(\begin{bmatrix}x\\y\end{bmatrix}) = x + 2y.$$
+  Vi vil minimere $f$ under betingelsen 
+  $$g(\begin{bmatrix}x\\y\end{bmatrix}) = 0.$$
+  Vi vil
+  finne alle lokale minima for $f$ under betingelsen
+  $g(\begin{bmatrix}x\\y\end{bmatrix}) = 0$.
+  Som før får vi de to likningene
+  $$
+  2x - \lambda = 2$$
+  og 
+  $$
+  8y - 2\lambda = -8.$$
+  Begingelsen $g(x) = 0$ blir nå
+  $$x^2 + 4y^2 -2x + 8y -27 = 0$$
+
+  Jeg har lyst at dette skal bli til en ligning av grad to i en ukjent. Derfor skriver jeg
+  ved hjelp av de første to likningene
+  $$ x = \lambda/2 + 1$$
+  og
+  $$ y = \lambda/4 - 1.$$
+  Dette setter jeg inn i den andre ligningen:
+  \begin{align*}
+    0 =
+    &x^2 + 4y^2 -2x + 8y -27 \\
+    =&
+    (\lambda/2 + 1)^2 + 4(\lambda/4 - 1)^2 -2(\lambda/2 + 1) + 8(\lambda/4 - 1) -27\\
+    =&
+    \lambda^2/4 + \lambda + 1 + \lambda^2/4 - 2\lambda + 4 -\lambda - 2 + 2\lambda - 8 -27\\
+    =&
+    \lambda^2/2 - 32.
+  \end{align*}
+  Her står $\lambda^2 = 64 = 8^2$. Derfor er $\lambda = \pm 8$.
+  
+  Setter jeg inn $\lambda = 8$ får jeg at $x = 5$ og $y = 1$. Setter jeg inn
+  $\lambda = -8$ får jeg at $x = -3$ og $y = -3$.
+
+  Siden 
+  $$f(\begin{bmatrix}5\\1\end{bmatrix}) = 5^2 + 4 - 2\cdot 5 + 8 = 27$$
+  og
+  $$f(\begin{bmatrix}-3\\-3\end{bmatrix}) = 9 + 12 + 6 - 24 = 3$$
+  må $f(\begin{bmatrix}-3\\-3\end{bmatrix})$ være et minimum for $f$ under
+  begingelsen $g = 0$. Altså er punktet 
+  $\punkt p = \begin{bmatrix}-3\\-3\end{bmatrix}$ et minimum for $f$ under betingelsen
+  $g(\punkt p) = 0$.
+
+\end{eksempel}
