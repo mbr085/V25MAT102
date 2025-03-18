@@ -1,17 +1,56 @@
 \section{Hypotesetest}
 
-\begin{hypotese}
-  Gjennomsnitstemperaturen for de siste 1095 dagene (de siste tre årene)
-  er mere enn en grad høyere enn gjennomsnittstemperaturen for de første 1095
-  dagene vi har målinger for.
-\end{hypotese}
+Jeg vil her gi et eksempel på en hypotesetest som tar utgangspunkt i temperaturene 
+i Bergen som vi studerte i første uken av dette kurset.
+
+Vi har sett at temperaturene ser ut til å ha økt i perioden vi har målinger for.
+La oss gjette på at temperaturen har økt med en grad i gjennomsnitt.
+Mere presist vil jeg gjøre utsagnet at på en tilfeldig dag i løpet av de
+siste tre årene er temperaturen mere enn en grad 
+høyere enn den var på samme dag for førti år siden.
+
+Det jeg ser på er altså forskjellen i temperatur mellom en gitt dag og samme dagen 
+på året førti år tidligere.
+Det data jeg vil bruke for å teste denne hypotesen er de daglige temperaturmålingene
+i de siste 1095 dagene (de siste tre årene) og de 1095 dagene som var 40 år tidligere.
+For $i = 1, \dots, 1095$ la $y_i$ være temperaturen for $i$ dager siden minus temperaturen
+for $i$ dager og $40$ år siden.
+Mitt gjett er at gjennomsnittet $E(y)$ av tallene $y_i$ er større enn $1$.
 
 \begin{nullhypotese}
-  Gjennomsnitstemperaturen for de siste 1095 dagene (de siste tre årene)
-  er presis en grad høyere enn gjennomsnittstemperaturen for de første 1095
-  dagene vi har målinger for.
+  Gjennomsnittet $E(y)$ er lik $\mu_0 = 1$.
 \end{nullhypotese}
 
+\begin{alternativhypotese}
+  Gjennomsnittet $E(y)$ er større enn $\mu_0 = 1$.
+\end{alternativhypotese}
+
+\subsection{Kriterier for hypotesetest}
+
+For å teste denne hypotesen vil jeg bruke en $t$-test.
+Jeg har ett utvalg av temperaturforskjeller $y_1, \dots, y_{1095}$, og nullhypotesen
+er at gjennomsnittet av disse tallene er lik $1$.
+
+En forutsetning for å bruke en $t$-test er at målingene er normalfordelte.
+Jeg vet ikke på forhånd om målingene er normalfordelte, men jeg kan danne meg
+en formening om dette ved å se på et histogram av målingene. Jeg kan finne 
+normalfordelingskurven som passer best til histogrammet og sammenligne de to.
+
+Hvis det ser bra ut kan jeg fortsette. Ellers må jeg finne en annen metode eller en
+annen hypotese.
+
+Ser det bra ut kan jeg fortsette med å beregne $t$-verdien og $p$-verdien.
+Formelen for $t$-verdien er
+$$
+t = \frac{E(y) - \mu_0}{\sigma/\sqrt{n}},
+$$
+hvor $\sigma$ er standardavviket til målingene og $n$ er antall målinger.
+
+Når vi vil gå fra $t$-verdi til $p$-verdi må vi bruke en $t$-fordeling med $n-1$ frihetsgrader.
+Slike $t$-fordelinger er tabellført, og vi kan finne $p$-verdien ved å se på tabellen. Det er også
+mulig å bruke en datamaskin til å finne $p$-verdien, for eksempel med python.
+
+Jeg vil bruke en to-utvalgs $t$-test
 Dette er en to-utvalgs $t$-test. La $y^1_1, \dots, y^1_{1095}$ være
 de første 1095 målingene og $y^2_1, \dots, y^2_{1095}$ være de siste 1095
 målingene. Vi antar at målingene er normalfordelte med ukjent varians $\sigma^2$.
