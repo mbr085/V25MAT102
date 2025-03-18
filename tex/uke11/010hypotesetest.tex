@@ -50,6 +50,15 @@ Når vi vil gå fra $t$-verdi til $p$-verdi må vi bruke en $t$-fordeling med $n
 Slike $t$-fordelinger er tabellført, og vi kan finne $p$-verdien ved å se på tabellen. Det er også
 mulig å bruke en datamaskin til å finne $p$-verdien, for eksempel med python.
 
+Vi vil gjøre en en-sidig test, fordi vi er interessert i om temperaturen har økt, ikke om den har
+avtatt.
+Siden normalfordelingskurven er symmetrisk, vil $p$-verdien for en to-sidig test være dobbelt så stor
+$p$-verdien for en en-sidig test.
+$p$-verdien vi får fra python er for en to-sidig test, så vi må halvere denne for å få $p$-verdien
+for en en-sidig test.
+
+
+Derfor vil vi se på $p$-verdien for $t$-verdien vi har funnet og sammenligne denne med
 Jeg vil bruke en to-utvalgs $t$-test
 Dette er en to-utvalgs $t$-test. La $y^1_1, \dots, y^1_{1095}$ være
 de første 1095 målingene og $y^2_1, \dots, y^2_{1095}$ være de siste 1095
