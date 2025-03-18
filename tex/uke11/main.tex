@@ -1,0 +1,52 @@
+\documentclass{amsart}
+\usepackage{amsmath, amsthm, amscd, amsfonts, amssymb, graphicx, color}
+\usepackage{tikz-cd}
+% \usepackage{amsmath}
+% \usepackage[backend=biber]{biblatex}
+% \addbibresource{references.bib}
+
+\newtheorem{teorem}{Teorem}%[section]
+\newtheorem{lemma}[teorem]{Lemma}
+\theoremstyle{definition}
+
+\newtheorem{definisjon}[teorem]{Definisjon}
+\newtheorem{eksempel}[teorem]{Eksempel}
+\newtheorem{oppgave}{Oppgave}
+\theoremstyle{remark}
+\newtheorem{bemerkning}[teorem]{Bemerkning}
+\newtheorem*{hypotese}{Hypotese}
+\newtheorem*{nullhypotese}{Nullhypotese}
+\numberwithin{equation}{section}
+
+%\newcommand{\V}[1]{\mathbf{#1}}
+\newcommand{\punkt}[1]{\mathbf{#1}}
+\newcommand{\vektor}[1]{\vec{\mathbf{#1}}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\F}{\punkt{F}}
+\newcommand{\G}{\punkt{G}}
+\newcommand{\x}{\punkt{x}}
+\newcommand{\y}{\punkt{y}}
+\newcommand{\vv}{\vektor{v}}
+% \newcommand{matrise}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+% \includeonly{018kjerneregel}
+% \includeonly{019andrederiverttesten}
+\begin{document}
+
+
+\title{Funksjoner av flere variable}
+\author{Morten}
+\date{\today}
+\maketitle
+
+% \input{010kurver.tex}
+% \input{011funksjoneravnvariable.tex}
+% \include{017totalderivert}
+% \include{018kjerneregel}
+% \include{019andrederiverttesten}
+% \include{020minsteKvadrater}
+% \include{025lineærRegresjon}
+\include{010hypotesetest}
+% \include{027lagrange}
+% \printbibliography
+
+\end{document}
