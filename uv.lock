@@ -121,6 +121,15 @@ wheels = [
 ]
 
 [[package]]
+name = "bespon"
+version = "0.7.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/c8/48/80322750e4225bfc8023829b4405f0f3a7f7612b1578a0ec7154c26ce276/bespon-0.7.0.tar.gz", hash = "sha256:746b57c38baaea97725c155f4a2f6cee408552a0353ceeea584198d09340cfc4", size = 80291 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/91/9c/b40279f0dbba6fa5877c652226ec499b4167a355395446dcba4b0c82a8d2/bespon-0.7.0-py3-none-any.whl", hash = "sha256:5fa231b2dee005f33b73b70811ff3f43f109cbf5235c5513b6e7b67550f26f41", size = 83360 },
+]
+
+[[package]]
 name = "bleach"
 version = "6.2.0"
 source = { registry = "https://pypi.org/simple" }
@@ -842,6 +851,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/05/f9/27e94c1b3eb29e6933b6986ffc5fa1177d2cd1f0c8efc5f02c91c9ac61de/kiwisolver-1.4.8-cp313-cp313t-musllinux_1_2_ppc64le.whl", hash = "sha256:151dffc4865e5fe6dafce5480fab84f950d14566c480c08a53c663a0020504b6", size = 2390661 },
     { url = "https://files.pythonhosted.org/packages/d9/d4/3c9735faa36ac591a4afcc2980d2691000506050b7a7e80bcfe44048daa7/kiwisolver-1.4.8-cp313-cp313t-musllinux_1_2_s390x.whl", hash = "sha256:577facaa411c10421314598b50413aa1ebcf5126f704f1e5d72d7e4e9f020d90", size = 2546710 },
     { url = "https://files.pythonhosted.org/packages/4c/fa/be89a49c640930180657482a74970cdcf6f7072c8d2471e1babe17a222dc/kiwisolver-1.4.8-cp313-cp313t-musllinux_1_2_x86_64.whl", hash = "sha256:be4816dc51c8a471749d664161b434912eee82f2ea66bd7628bd14583a833e85", size = 2349213 },
+]
+
+[[package]]
+name = "markdown"
+version = "3.7"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/54/28/3af612670f82f4c056911fbbbb42760255801b3068c48de792d354ff4472/markdown-3.7.tar.gz", hash = "sha256:2ae2471477cfd02dbbf038d5d9bc226d40def84b4fe2986e49b59b6b472bbed2", size = 357086 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/3f/08/83871f3c50fc983b88547c196d11cf8c3340e37c32d2e9d6152abe2c61f7/Markdown-3.7-py3-none-any.whl", hash = "sha256:7eb6df5690b81a1d7942992c97fad2938e956e79df20cbc6186e9c3a77b1c803", size = 106349 },
 ]
 
 [[package]]
@@ -1707,6 +1725,19 @@ wheels = [
 ]
 
 [[package]]
+name = "text2qti"
+version = "0.7.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "bespon" },
+    { name = "markdown" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/39/d7/0b492f9c2466b66abfe36cbd751a04fa54c93ea72ee40cf0c1e1643bfd93/text2qti-0.7.1.tar.gz", hash = "sha256:05ede70e7db2b2650efab57f284b165b545416052b57a4aee8f5b14d9b2a990b", size = 70535 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d0/49/ede6672356c383f6b25e67f26c199eaac05fe2b57ede1cf46a2dbd69560c/text2qti-0.7.1-py3-none-any.whl", hash = "sha256:319ca23dbd3a1117c42c8b2efcb4834b4c5eede3b83b0913168859dbc8ebdaba", size = 55954 },
+]
+
+[[package]]
 name = "threadpoolctl"
 version = "3.5.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1813,6 +1844,7 @@ dependencies = [
     { name = "scikit-learn" },
     { name = "scipy" },
     { name = "sympy" },
+    { name = "text2qti" },
 ]
 
 [package.dev-dependencies]
@@ -1831,6 +1863,7 @@ requires-dist = [
     { name = "scikit-learn", specifier = ">=1.6.1" },
     { name = "scipy", specifier = ">=1.15.1" },
     { name = "sympy", specifier = ">=1.13.3" },
+    { name = "text2qti", specifier = ">=0.7.1" },
 ]
 
 [package.metadata.requires-dev]
