@@ -803,6 +803,15 @@ wheels = [
 ]
 
 [[package]]
+name = "jupyterquiz"
+version = "2.8.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/9a/fd/9946095c408256608f474173114b4fa340dc3bad384420e1fdb151d28669/jupyterquiz-2.8.1.tar.gz", hash = "sha256:67a4ade6c9f6d4e07f875fbf8aaf42150aab97bc29f4d50586ab0458d603d613", size = 1086959 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/88/67/7786f61ede05c37df072e496be6deb1bb27ebf7b82ab8bd8f50aaef5a328/jupyterquiz-2.8.1-py2.py3-none-any.whl", hash = "sha256:8c8fa76b82d4942417eb6835fbfe3e97548aa626d3bf2c12a7a7ed9151c0b38c", size = 21434 },
+]
+
+[[package]]
 name = "kiwisolver"
 version = "1.4.8"
 source = { registry = "https://pypi.org/simple" }
@@ -1836,6 +1845,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "jupyter" },
+    { name = "jupyterquiz" },
     { name = "matplotlib" },
     { name = "meteostat" },
     { name = "numpy" },
@@ -1855,6 +1865,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "jupyter", specifier = ">=1.1.1" },
+    { name = "jupyterquiz", specifier = ">=2.8.1" },
     { name = "matplotlib", specifier = ">=3.10.0" },
     { name = "meteostat", specifier = ">=1.6.8" },
     { name = "numpy", specifier = ">=2.2.2" },
